@@ -44,9 +44,4 @@ public class DraftFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_draft, container, false);
     }
 
-
-
-
-
-
 }
