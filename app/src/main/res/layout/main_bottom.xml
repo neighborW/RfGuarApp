@@ -6,12 +6,13 @@
     android:layout_height="70dp"
     >
     <LinearLayout
-        android:background="#FDFBFB"
+        android:background="#FAF7F7"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
         >
         <LinearLayout
+            android:id="@+id/ll_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -36,6 +37,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_add"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -52,6 +54,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_mine"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
