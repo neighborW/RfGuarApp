@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_login"
+    android:orientation="vertical"
+    android:outlineSpotShadowColor="#F0F0F0"
+    tools:context=".activity.LoginActivity">
+    <ImageView
+        android:layout_width="87.5dp"
+        android:layout_height="16dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="50dp"
+        android:background="@mipmap/login_bg"
+        android:color="#fff0f0f0"
+        >
+    </ImageView>
+    <LinearLayout
+        android:layout_width="135dp"
+        android:layout_height="22.5dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="52dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="81.5dp"
+        android:background="@drawable/shape_login_form"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/et_account"
+            android:background="@null"
+            android:text="root"
+            android:textColor="#000000"
+            android:textColorHint="#bcbcbc"
+            android:textSize="18sp"
+            android:layout_height="16dp"
+            android:layout_weight="68dp"/>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/account" />
+    </LinearLayout>
+</LinearLayout>

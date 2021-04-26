@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="home"
-                android:textSize="14sp"
+                android:textSize="@dimen/size_14px"
                 android:layout_marginTop="2.5dp"
                 />
         </LinearLayout>
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="mine"
-                android:textSize="14sp"
+                android:textSize="@dimen/size_14px"
                 android:layout_marginTop="2.5dp"
                 tools:ignore="DuplicateIds" />
         </LinearLayout>
