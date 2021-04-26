@@ -15,7 +15,6 @@
         android:layout_marginBottom="19.5dp"
         android:background="@drawable/shape_register_bg"
         android:orientation="vertical">
-
         <include
             layout="@layout/common_back"
             android:layout_width="86dp"
@@ -30,7 +29,6 @@
             android:layout_marginTop="54dp"
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/frstName"
                 android:layout_width="135dp"
@@ -54,7 +52,6 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/lastName"
                 android:layout_width="135dp"
@@ -66,7 +63,6 @@
                 android:textColorHint="#bcbcbc"
                 android:textSize="14dp" />
         </LinearLayout>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="20dp">
@@ -79,7 +75,6 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/agentName"
                 android:layout_width="135dp"
@@ -103,7 +98,6 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/contactNumber"
                 android:layout_width="135dp"
@@ -115,7 +109,6 @@
                 android:textColorHint="#bcbcbc"
                 android:textSize="14dp" />
         </LinearLayout>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="20dp">
@@ -128,7 +121,6 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/et_postCode"
                 android:layout_width="135dp"
@@ -140,7 +132,6 @@
                 android:textColorHint="#bcbcbc"
                 android:textSize="14dp" />
         </LinearLayout>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="20dp">
@@ -153,7 +144,6 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/et_area"
                 android:layout_width="135dp"
@@ -177,7 +167,6 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/et_address"
                 android:layout_width="135dp"
@@ -189,7 +178,6 @@
                 android:textColorHint="#bcbcbc"
                 android:textSize="14dp" />
         </LinearLayout>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="20dp">
@@ -202,16 +190,16 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_big_login_btn"
             android:orientation="horizontal">
-
             <Button
-                android:id="@+id/et_account"
+                android:id="@+id/sumit"
                 android:layout_width="135dp"
-                android:layout_height="22.5dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:hint="Email"
+                android:hint="SIGN UP"
                 android:textColor="#000000"
                 android:textColorHint="#bcbcbc"
+                android:layout_marginBottom="30dp"
                 android:textSize="14dp" />
         </LinearLayout>
     </LinearLayout>
