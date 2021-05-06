@@ -8,8 +8,8 @@ import androidx.appcompat.widget.AppCompatEditText;
 
 public class MyEditText  extends AppCompatEditText {
 
-
     private long lastTime = 0;
+
     public MyEditText(Context context) {
         super(context);
     }
