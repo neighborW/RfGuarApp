@@ -2,21 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="30dp"
-    >
+    android:layout_height="20dp">
     <LinearLayout
         android:id="@+id/ll_back"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         android:orientation="horizontal"
-        android:gravity="center_vertical"
+        android:gravity="left"
         >
     <ImageView
         android:id="@+id/im_back"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@mipmap/back"
-        android:layout_marginLeft="16dp"
-        />
+        android:src="@mipmap/back"/>
     </LinearLayout>
 </LinearLayout>
