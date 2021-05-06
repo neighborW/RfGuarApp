@@ -5,6 +5,4 @@
     <item android:name="android:shadowColor">#26000000</item>
     <item android:name="android:shadowDx">0</item>
     <item android:name="android:shadowDy">1</item>
-
-
 </shape>
