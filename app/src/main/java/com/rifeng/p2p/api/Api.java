@@ -15,7 +15,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-
 public class Api {
 
     private static  OkHttpClient client;
@@ -34,7 +33,6 @@ public class Api {
         mParams = params;
         return api;
     }
-
     public static void postRequst(TitleCallback callback){
 
         JSONObject jsonObject = new JSONObject(mParams);

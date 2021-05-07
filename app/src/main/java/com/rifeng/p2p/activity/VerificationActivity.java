@@ -1,12 +1,10 @@
 package com.rifeng.p2p.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.rifeng.p2p.R;
 
-public class VerificationActivity extends AppCompatActivity {
+public class VerificationActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
