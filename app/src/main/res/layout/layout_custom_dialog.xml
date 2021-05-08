@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="130.5dp"
+    android:layout_marginLeft="42.5dp"
+    android:layout_marginRight="42.4dp"
+    android:background="@drawable/shape_tip_dialog"
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="24dp"></View>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="70.5dp"
+        android:layout_marginRight="70dp"
+        android:src="@mipmap/register_success" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="#000000"
+        android:text="Register Successful"
+        android:textSize="20dp"
+        android:gravity="center"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp">
+    </View>
+</LinearLayout>

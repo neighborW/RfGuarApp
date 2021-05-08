@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">P2P</string>
+    <string name="text_size">14px</string>
+    <string name="text_tip">You will exit the App, are you sure to exit?</string>
+    <string name="text_determin">YES</string>
+    <string name="text_cancel">NO</string>
+    <string name="todo">TODO</string>
+
+</resources>
