@@ -1,0 +1,9 @@
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/Color_Expiring" />
+    <corners
+        android:topLeftRadius="12dp"
+        android:topRightRadius="12dp"
+        />
+</shape>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/pipe_diagram_bg"
+    android:background="@color/Color_Background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_border"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Pipeline Diagram"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/Color_Word65"
+                android:textSize="@dimen/main_text_size"
+                android:textAlignment="textStart"
+                tools:ignore="RtlCompat" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="12 at most"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="@dimen/main_text_size"
+                android:textColor="@color/Color_Word65"
+                android:textAlignment="textEnd"
+                tools:ignore="RtlCompat" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/pipe_diagram_split_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_height="1dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/dash_line" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pipediagram_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:overScrollMode="never"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

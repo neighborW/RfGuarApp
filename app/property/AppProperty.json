@@ -1,0 +1,26 @@
+{
+	"PACKAGE_NAME":"com.eb.rifeng.safe",
+
+	"PGYER_APPID":"744cfd093dec510c165539f295461b72",
+
+	"KEYSTORE_FILE_NAME":"rfhw.jks",
+	"KEYSTORE_ALIAS":"rfhw",
+	"KEYSTORE_KEY_PASSWORD":"rfsafe2018",
+	"KEYSTORE_PASSWORD":"rfsafe2018",
+
+	"VERSION_CODE":13,
+	"VERSION_NAME":"1.1.0",
+
+	"MP_HOST_URL_FORMAL":"http://aqqas.rifeng.com.cn:90/auapp/",
+	"MP_UPLOAD_URL_FORMAL":"",
+	"MP_HOST_URL_TEST":"http://aqqas.rifeng.com.cn:90/auapp/",
+	"MP_UPLOAD_URL_TEST":"",
+
+	"MP_HOST_URL_DEV":"http://aqqas.rifeng.com.cn:90/auapp/",
+	"MP_UPLOAD_URL_DEV":"",
+	"MP_HOST_URL_DIY":"",
+	"MP_UPLOAD_URL_DIY":"",
+
+	"ENV":"FORMAL"
+
+}

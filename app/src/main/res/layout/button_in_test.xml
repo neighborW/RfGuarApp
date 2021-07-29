@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="horizontal"
+android:layout_width="match_parent"
+android:layout_height="56dp"
+android:background="#FFF"
+android:gravity="center"
+    >
+<Button
+    android:id="@+id/btn_save"
+    android:layout_marginLeft="12dp"
+    android:layout_width="0dp"
+    android:layout_height="40dp"
+    android:layout_weight="1"
+    android:text="Save"
+    android:textColor="#0728EC"
+    android:textSize="12dp"
+    android:background="@drawable/shape_btn_line"
+    />
+<View
+    android:layout_width="11dp"
+    android:layout_height="match_parent">
+</View>
+<Button
+    android:id="@+id/btn_submit"
+    android:layout_marginRight="12dp"
+    android:layout_width="0dp"
+    android:layout_height="40dp"
+    android:layout_weight="1"
+    android:text="Submit"
+    android:textSize="12dp"
+    android:textColor="#FFF"
+    android:background="@drawable/shape_big_login_btn"
+    />
+</LinearLayout>

@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/pressure_test_all_bg_layout"
+    >
+
+       <!-- 顶部导航条   -->
+        <LinearLayout
+            android:id="@+id/ll_title"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:background="#FFFFFF"
+            android:layout_weight="0"
+            android:gravity="center_vertical"
+            >
+            <include layout="@layout/layout_toolbar"></include>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_below="@+id/v_grap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#F6F8FAFF"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <View
+                    android:id="@+id/v_grap"
+                    android:layout_below="@+id/ll_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"></View>
+
+                <!--  basic data title-->
+                <LinearLayout
+                    android:id="@+id/basic_data_title_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="#FFFFFF"
+                    >
+                    <TextView
+                        android:id="@+id/basic_data_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/pressuretest_basic_data"
+                        android:textColor="@color/Color_Main"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="16sp" />
+                    <ImageView
+                        android:id="@+id/basic_data_open"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="21dp"
+                        android:layout_weight="0"
+                        android:src="@mipmap/shrink"
+                        />
+                </LinearLayout>
+
+                <!--    basic data 内容-->
+                <LinearLayout
+                    android:id="@+id/ll_basic_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    >
+                    <!--项目名称-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:background="@drawable/shape_border"
+                        >
+                        <com.rifeng.p2p.view.MyEditText
+
+                            android:id="@+id/basic_project_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/pressuretest_basic_project_name"
+                            android:textColor="@color/Color_Word85"
+                            android:textColorHint="@color/Color_Word25"
+                            android:textSize="@dimen/edit_hint_sizt"
+                            android:drawableRight="@mipmap/delete_image"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:background="@color/transparent_background"
+                            android:ems="20"
+                            />
+                    </LinearLayout>
+                    <!--项目地址-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:background="@drawable/shape_border"
+                        >
+                        <com.rifeng.p2p.view.MyEditText
+
+                            android:id="@+id/basic_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/pressuretest_basic_address"
+                            android:textColor="@color/Color_Word85"
+                            android:textColorHint="@color/Color_Word25"
+                            android:textSize="@dimen/edit_hint_sizt"
+                            android:drawableRight="@mipmap/delete_image"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:singleLine="true"
+                            android:background="@color/transparent_background"
+                            android:ems="10"
+                            />
+                    </LinearLayout>
+                    <!--项目postcode-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:background="@drawable/shape_border"
+                        >
+                        <com.rifeng.p2p.view.MyEditText
+
+                            android:id="@+id/basic_post_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/pressuretest_basic_postCode"
+                            android:textColor="@color/Color_Word85"
+                            android:textColorHint="@color/Color_Word25"
+                            android:textSize="@dimen/edit_hint_sizt"
+                            android:drawableRight="@mipmap/delete_image"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:singleLine="true"
+                            android:background="@color/transparent_background"
+                            android:ems="10"
+                            />
+                    </LinearLayout>
+                    <!--项目test日期-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:background="@drawable/shape_border"
+                        >
+                        <com.rifeng.p2p.view.MyEditText
+
+                            android:id="@+id/basic_test_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/pressuretest_basic_test_time"
+                            android:textColor="@color/Color_Word85"
+                            android:textColorHint="@color/Color_Word25"
+                            android:textSize="@dimen/edit_hint_sizt"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:enabled="false"
+                            android:singleLine="true"
+                            android:background="@color/transparent_background"
+                            android:ems="10"
+                            />
+                    </LinearLayout>
+
+                    <!--公司-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:background="@drawable/shape_border"
+                        >
+                        <com.rifeng.p2p.view.MyEditText
+
+                            android:id="@+id/basic_company"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/pressuretest_basic_Company"
+                            android:textColor="@color/Color_Word85"
+                            android:textColorHint="@color/Color_Word25"
+                            android:textSize="@dimen/edit_hint_sizt"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:background="@color/transparent_background"
+                            android:ems="10"
+                            android:singleLine="true"
+                            android:enabled="false"
+                            />
+                    </LinearLayout>
+                    <!--Pipe brand and type-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+
+                        android:background="@drawable/shape_border"
+                        >
+                        <com.rifeng.p2p.view.MyEditText
+
+                            android:id="@+id/basic_pipe_brand_and_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/pressuretest_pipe_brand_and_type"
+                            android:textColor="@color/Color_Word85"
+                            android:textColorHint="@color/Color_Word25"
+                            android:textSize="@dimen/edit_hint_sizt"
+                            android:drawableRight="@mipmap/delete_image"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:singleLine="true"
+                            android:background="@color/transparent_background"
+                            android:ems="10"
+                            />
+                    </LinearLayout>
+
+                    <!--Pipe brand and type-->
+                    <FrameLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:id="@+id/cc_email_bg_view"
+                        android:background="@drawable/shape_border"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <TextView
+
+                                android:id="@+id/basic_ccemail"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:hint="@string/pressuretest_basic_cc_email"
+                                android:textColor="@color/Color_Word85"
+                                android:textColorHint="@color/Color_Word25"
+                                android:textSize="@dimen/edit_hint_sizt"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:background="@color/transparent_background"
+                                android:enabled="false"
+                                android:singleLine="true"
+                                android:ems="10"
+                                />
+
+                            <ImageView
+                                android:id="@+id/ccemail_right_imageview"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginRight="12dp"
+                                android:layout_weight="0"
+                                android:src="@mipmap/jump"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ccemail_bg_click_layout"
+                            android:orientation="horizontal">
+
+
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+
+
+
+
+
+                    <!--TestMethod-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:background="@drawable/shape_border"
+                        >
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <TextView
+
+                                android:id="@+id/basic_testmethod"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@color/transparent_background"
+                                android:clickable="true"
+                                android:ems="10"
+                                android:enabled="false"
+                                android:hint="@string/pressuretest_basic_test_method"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:singleLine="true"
+                                android:textColor="@color/Color_Word85"
+                                android:textColorHint="@color/Color_Word25"
+                                android:textSize="@dimen/edit_hint_sizt"
+
+                                />
+
+                            <LinearLayout
+                                android:id="@+id/test_method_bg_click_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent_background"
+                                android:orientation="vertical">
+
+                            </LinearLayout>                        </FrameLayout>
+
+
+                        <!--                        <Spinner-->
+<!--                            android:id="@+id/spinner_testmethod"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_marginLeft="1dp"-->
+<!--                            android:layout_marginRight="1dp"-->
+<!--                            android:textColor="@color/Color_Word85"-->
+<!--                            android:background="@color/transparent_background"-->
+<!--                            android:overlapAnchor="false"-->
+<!--                            android:prompt="@string/test_method">-->
+
+<!--                        </Spinner>-->
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp">
+                </View>
+
+                <!--pressure Test title-->
+                <LinearLayout
+                    android:id="@+id/pressure_test_title_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="#FFFFFF"
+                    >
+                    <TextView
+                        android:id="@+id/pressure_test_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/pressuretest_title"
+                        android:textColor="@color/Color_Main"
+                        android:layout_alignParentLeft="true"
+
+                        android:textSize="16sp" />
+                    <ImageView
+                        android:id="@+id/pressure_test_open"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="21dp"
+                        android:layout_weight="0"
+                        android:src="@mipmap/shrink"
+                        />
+                </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/pressure_test_content_bg_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                >
+                <!--blue_tooth_and_battery content-->
+
+                <LinearLayout
+                    android:id="@+id/blue_tooth_and_battery_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+
+                    >
+
+                    <!--蓝牙连接-->
+                    <LinearLayout
+                        android:id="@+id/blue_tooth_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:visibility="visible"
+                        android:background="@drawable/shape_border"
+                        >
+
+                        <View
+                            android:id="@+id/bluetooth_connect_dot_view"
+                            android:layout_marginLeft="12dp"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_weight="0"
+                            android:background="@drawable/dot_connnect">
+
+                        </View>
+                        <TextView
+                            android:id="@+id/bluetooth_name_textView"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center"
+                            android:text="Connected(Rifeng Guard)"
+                            android:textColor="@color/Color_Word85"
+                            android:textAlignment="2"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/blue_tooth_connect_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Disconnect"
+                            android:layout_marginRight="12dp"
+                            android:textColor="@color/Color_Main"
+                            android:layout_weight="0"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!--电池状态-->
+                    <LinearLayout
+                        android:id="@+id/battery_status_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:visibility="visible"
+                        android:background="@drawable/shape_border"
+                        >
+
+                        <View
+                            android:id="@+id/battery_dot_view"
+                            android:layout_marginLeft="12dp"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_weight="0"
+                            android:background="@drawable/dot_connnect"></View>
+                        <TextView
+                            android:id="@+id/battery_power_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center"
+                            android:text="@string/pressuretest_battery_power"
+                            android:textColor="@color/Color_Word85"
+                            android:textAlignment="2"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/battery_info_imageview"
+                            android:layout_width="22dp"
+                            android:layout_height="13dp"
+                            android:layout_weight="0"
+                            android:gravity="center"
+                            android:layout_marginRight="12dp"
+                            android:src="@mipmap/power_0" />
+                        <!--                        <TextView-->
+<!--                            android:id="@+id/battery_power_num_textview"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="15%"-->
+<!--                            android:layout_marginRight="12dp"-->
+<!--                            android:textColor="@color/Color_Error"-->
+<!--                            android:layout_weight="0"-->
+<!--                            android:textSize="14sp" />-->
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/battery_power_low_tip_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/pressuretest_battery_tip"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:textColor="@color/Color_Error"
+                        android:textAlignment="2"
+                        android:layout_weight="0"
+                        android:textSize="12sp" />
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp">
+                </View>
+
+                <!--选择组别-->
+                <LinearLayout
+                    android:id="@+id/select_test_group_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    >
+                    <include layout="@layout/test_select_group"></include>
+                </LinearLayout>
+
+
+                <include layout="@layout/testing_layout"></include>
+
+
+                <!--测压结果-->
+                <include
+                    layout="@layout/test_result_data"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+                </include>
+
+                <!--管路图-->
+                <include
+                    layout="@layout/pipe_diagram_layout"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+                </include>
+
+                <!--管码-->
+                <include
+                    layout="@layout/pipe_code_layout"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+
+                </include>
+            </LinearLayout>
+
+                <!--<include layout="@layout/test_finish"></include>-->
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+    <LinearLayout
+        android:id="@+id/bottom_view"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:layout_weight="0"
+        android:gravity="center_vertical"
+        >
+
+
+        <Button
+            android:id="@+id/pressure_button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/save_btn_corner_shape"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/Color_Main"
+            android:text="@string/Save" />
+
+        <Button
+            android:id="@+id/pressure_button_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/submit_btn_disable_bg"
+            android:textColor="@color/white"
+            android:text="@string/submit" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

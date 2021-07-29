@@ -2,21 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/quit__dialog_bg"
+    android:background="@drawable/quit_dialog_bg"
     >
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="79dp"
+        android:id="@+id/dialog_icon_imageview"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="67dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="67dp"
         android:src="@mipmap/title_feekback"
         android:contentDescription="@string/todo" />
     <TextView
+        android:id="@+id/tv_warning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -25,15 +25,14 @@
         android:gravity="center"
         android:text="@string/text_tip"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="14sp" />
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp" />
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#000000" />
-
+        android:background="@color/Color_Word10" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,13 +45,13 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/text_cancel"
-            android:textColor="#000000"
-            android:background="@drawable/quit__dialog_bg"
-            android:textSize="22sp" />
+            android:textColor="@color/Color_Word50"
+            android:background="@drawable/quit_dialog_bg"
+            android:textSize="16sp" />
         <View
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
-            android:background="#000000" />
+            android:background="@color/Color_Word10" />
         <Button
             android:id="@+id/btn_determin"
             android:layout_width="0dp"
@@ -61,7 +60,7 @@
             android:gravity="center"
             android:text="@string/text_determin"
             android:textColor="#0081CC"
-            android:background="@drawable/quit__dialog_bg"
-            android:textSize="22sp" />
+            android:background="@drawable/quit_dialog_yesbg"
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

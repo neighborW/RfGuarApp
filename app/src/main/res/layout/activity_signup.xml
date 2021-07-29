@@ -5,24 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:background="@mipmap/bg_login"
     tools:context=".activity.SignupActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="43dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="43dp"
+    
         android:background="@drawable/sign_up_bg"
         >
         <include layout="@layout/common_back"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
             android:layout_height="20dp"
-            android:layout_width="150dp"></include>
+            android:layout_width="150dp">
+        </include>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,12 +36,15 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_44dp"
             android:layout_gravity="center"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="40dp"
             android:layout_marginLeft="26.5dp"
             android:layout_marginRight="26dp"
             android:background="@drawable/verficate_form"
             android:orientation="horizontal">
+
             <EditText
+                android:singleLine="true"
+                android:ellipsize="middle"
                 android:id="@+id/et_email"
                 android:layout_width="135dp"
                 android:layout_height="32.5dp"
@@ -50,13 +53,15 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="Email"
-                android:textColor="#40000000"
-                android:textColorHint="#40000000"
-                android:textSize="14dp" />
+                android:textColor="@color/Color_Word85"
+                android:textColorHint="@color/Color_Word25"
+                android:textSize="14dp"
+                android:textCursorDrawable="@drawable/color_cursor"
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"></View>
+            android:layout_height="20dp"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_44dp"
@@ -66,6 +71,8 @@
             android:background="@drawable/verficate_form"
             android:orientation="horizontal">
             <EditText
+                android:singleLine="true"
+                android:ellipsize="middle"
                 android:id="@+id/et_invitation_code"
                 android:layout_width="135dp"
                 android:layout_height="32.5dp"
@@ -76,11 +83,14 @@
                 android:hint="Invitation Code"
                 android:textColor="#000000"
                 android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                android:textCursorDrawable="@drawable/color_cursor"
+
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"></View>
+            android:layout_height="20dp"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_44dp"
@@ -90,7 +100,9 @@
             android:background="@drawable/verficate_form"
             android:orientation="horizontal">
             <EditText
-                android:id="@+id/et_new_password"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:id="@+id/et_password"
                 android:layout_width="135dp"
                 android:layout_height="32.5dp"
                 android:layout_marginTop="6dp"
@@ -100,11 +112,28 @@
                 android:hint="Password"
                 android:textColor="#000000"
                 android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                android:inputType="textPassword"
+                android:textCursorDrawable="@drawable/color_cursor"
+                />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_pass_tip"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textSize="12sp"
+            android:textColor="#E60012"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"></View>
+            android:layout_height="20dp"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_44dp"
@@ -124,48 +153,63 @@
                 android:hint="New Password"
                 android:textColor="#000000"
                 android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:textCursorDrawable="@drawable/color_cursor"
+                />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
-            android:layout_height="10dp">
+            android:layout_height="20dp">
         </View>
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="27dp"
             android:layout_marginRight="19dp"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:gravity="center"
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="42dp"
-                android:layout_marginRight="19dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
                 android:orientation="horizontal"
+                android:gravity="center"
                 >
                 <CheckBox
+                    android:id="@+id/cb_agree_checkbox"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:button="@null"
+                    android:background="@mipmap/checkbox_image" />
+                <TextView
+                    android:layout_marginLeft="6dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="30dp"
                     android:text="I have read and agree to the "
+                    android:textColor="@color/Color_Word25"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
                     />
             </LinearLayout>
-
             <TextView
-                android:id="@+id/tv_context"
+                android:id="@+id/tv_agreet_context"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:gravity="center"
-                android:textColor="#0091FF"
-                android:text="Registration Agreement" />
+                android:textColor="@color/Color_Main"
+                android:text="Registration Agreement"
+                android:textSize="@dimen/size_14sp"
+                />
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp">
-
-        </View>
         <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/btn_continue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -175,6 +219,10 @@
             android:textColor="#FFFFFF"
             android:textSize="20dp"
             />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+        </View>
     </LinearLayout>
-
+    
 </LinearLayout>

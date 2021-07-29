@@ -1,0 +1,1117 @@
+Index: app/src/main/java/com/rifeng/p2p/adapter/ImageAdapter.java
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/adapter/ImageAdapter.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/adapter/ImageAdapter.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
+@@ -1,76 +0,0 @@
+-package com.rifeng.p2p.adapter;
+-
+-import android.content.Context;
+-import android.view.LayoutInflater;
+-import android.view.View;
+-import android.view.ViewGroup;
+-import android.widget.BaseAdapter;
+-import android.widget.ImageView;
+-import android.widget.LinearLayout;
+-
+-import com.bumptech.glide.Glide;
+-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+-import com.rifeng.p2p.R;
+-import com.rifeng.p2p.config.Constract;
+-
+-import java.util.ArrayList;
+-
+-
+-public class ImageAdapter extends BaseAdapter {
+-
+-    private final Context context;
+-    private LayoutInflater inflater;
+-    private ArrayList<String> datas; //接受传入数据
+-
+-    public ImageAdapter(Context context, ArrayList<String> datas) {
+-        this.context = context;
+-        this.datas = datas;
+-        inflater = LayoutInflater.from(context);
+-    }
+-    @Override
+-    public int getCount() {
+-        return datas.size();
+-    }
+-    @Override
+-    public Object getItem(int i) {
+-        return datas.get(i);
+-    }
+-    @Override
+-    public long getItemId(int i) {
+-        return i;
+-    }
+-    @Override
+-    public View getView(int i, View view, ViewGroup viewGroup) {
+-
+-        ViewHolder holder;
+-        if(view == null) {
+-            holder = new ViewHolder();
+-            view = inflater.inflate(R.layout.item_grid_image, viewGroup, false);
+-            holder.iv = view.findViewById(R.id.add_image);
+-            holder.deleteImage = view.findViewById(R.id.delete_image);
+-            view.setTag(holder);
+-        } else {
+-            holder = (ViewHolder) view.getTag();
+-        }
+-        final String path = datas.get(i);
+-
+-        if (path.equals(Constract.PLUS)) {
+-            holder.iv.setImageResource(R.mipmap.add_image);
+-        } else {
+-
+-            Glide.with(context)
+-                    .load(path)
+-                    .placeholder(R.mipmap.image_thub)
+-                    .error(R.mipmap.image_thub)
+-                    .centerCrop()
+-                    .transition(DrawableTransitionOptions.withCrossFade())
+-                    .into(holder.iv);
+-        }
+-        return view;
+-    }
+-    class ViewHolder {
+-        ImageView iv;
+-        ImageView deleteImage;
+-        LinearLayout llDelete;
+-    }
+-}
+Index: app/src/main/res/layout/activity_add.xml
+===================================================================
+--- app/src/main/res/layout/activity_add.xml	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/res/layout/activity_add.xml	(revision 9be753370696fb6162e327a675a798d9114e2542)
+@@ -1,453 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout
+-    xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:background="#F6F8FAFF"
+-    android:orientation="vertical"
+-    >
+-    <LinearLayout
+-        android:id="@+id/ll_title"
+-        android:layout_alignParentTop="true"
+-        android:layout_width="match_parent"
+-        android:layout_height="64dp"
+-        android:orientation="horizontal"
+-        android:background="#FFFFFF"
+-        android:gravity="center_vertical"
+-        >
+-        <include layout="@layout/layout_toolbar"></include>
+-<!--        <RelativeLayout-->
+-<!--            android:layout_width="match_parent"-->
+-<!--            android:layout_height="wrap_content"-->
+-<!--            >-->
+-<!--            <TextView-->
+-<!--                android:layout_width="wrap_content"-->
+-<!--                android:layout_height="wrap_content"-->
+-<!--                android:text="Pressure Test"-->
+-<!--                android:textColor="#333333"-->
+-<!--                android:layout_centerInParent="true"-->
+-<!--                android:textSize="18sp" />-->
+-<!--            <include-->
+-<!--                layout="@layout/common_back"-->
+-<!--                android:layout_width="40dp"-->
+-<!--                android:layout_marginLeft="10dp"-->
+-<!--                android:layout_alignParentLeft="true"-->
+-<!--                android:layout_centerVertical="true"-->
+-<!--                android:layout_height="wrap_content"-->
+-<!--                ></include>-->
+-<!--        </RelativeLayout>-->
+-    </LinearLayout>
+-    <View
+-        android:id="@+id/v_grap"
+-        android:layout_below="@+id/ll_title"
+-        android:layout_width="match_parent"
+-        android:layout_height="12dp"></View>
+-    <ScrollView
+-        android:layout_below="@+id/v_grap"
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:background="#F6F8FAFF"
+-        >
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="vertical"
+-            >
+-            <LinearLayout
+-                android:id="@+id/lin_tv"
+-                android:layout_width="wrap_content"
+-                android:layout_height="49dp"
+-                android:orientation="horizontal"
+-                android:gravity="center"
+-                android:background="#FFFFFF"
+-                >
+-                <RelativeLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:gravity="center_vertical"
+-                    >
+-                    <TextView
+-                        android:id="@+id/et_basic"
+-                        android:layout_width="217dp"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginLeft="12dp"
+-                        android:layout_weight="1"
+-                        android:text="Basic Data"
+-                        android:textColor="#0081CC"
+-                        android:layout_alignParentLeft="true"
+-                        android:textSize="12sp" />
+-                    <ImageView
+-                        android:id="@+id/iv_basic"
+-                        android:layout_width="25dp"
+-                        android:layout_height="25dp"
+-                        android:layout_alignParentRight="true"
+-                        android:layout_weight="2"
+-                        android:src="@mipmap/unfold"
+-                        />
+-                </RelativeLayout>
+-            </LinearLayout>
+-            <LinearLayout
+-                android:id="@+id/ll_basic_data"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:orientation="vertical"
+-                android:visibility="visible"
+-                >
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="40dp"
+-                    android:layout_marginLeft="12dp"
+-                    android:layout_marginRight="12dp"
+-                    android:layout_marginTop="12dp"
+-                    android:background="#FFFFFF"
+-                    >
+-                    <EditText
+-                        android:textCursorDrawable="@drawable/color_cursor"
+-                        android:singleLine="true"
+-                        android:ellipsize="middle"
+-                        android:id="@+id/et_project_name"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="match_parent"
+-                        android:hint="Project Name"
+-                        android:textColor="#000000"
+-                        android:textColorHint="#40000000"
+-                        android:textSize="@dimen/edit_hint_sizt"
+-                        />
+-                </LinearLayout>
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="40dp"
+-                    android:layout_marginLeft="12dp"
+-                    android:layout_marginRight="12dp"
+-                    android:layout_marginTop="12dp"
+-                    android:background="#FFFFFF"
+-                    >
+-                    <EditText
+-                        android:textCursorDrawable="@drawable/color_cursor"
+-                        android:singleLine="true"
+-                        android:ellipsize="middle"
+-                        android:id="@+id/et_site_address"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="match_parent"
+-                        android:hint="Site Address(Street+Suberb)"
+-                        android:textColorHint="#40000000"
+-                        android:textColor="#000000"
+-                        android:textSize="@dimen/edit_hint_sizt"
+-                        />
+-                </LinearLayout>
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="40dp"
+-                    android:layout_marginLeft="12dp"
+-                    android:layout_marginRight="12dp"
+-                    android:layout_marginTop="12dp"
+-                    android:background="#FFFFFF"
+-                    >
+-                    <EditText
+-                        android:textCursorDrawable="@drawable/color_cursor"
+-                        android:singleLine="true"
+-                        android:ellipsize="middle"
+-                        android:id="@+id/et_post_code"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="match_parent"
+-                        android:hint="Post Code"
+-                        android:textColorHint="#40000000"
+-                        android:textColor="#000000"
+-                        android:textSize="@dimen/edit_hint_sizt"
+-                        />
+-                </LinearLayout>
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="40dp"
+-                    android:layout_marginLeft="12dp"
+-                    android:layout_marginRight="12dp"
+-                    android:background="#FFFFFF"
+-                    android:layout_marginTop="12dp"
+-                    >
+-                    <EditText
+-                        android:id="@+id/et_date"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="55dp"
+-                        android:text="Feb 20,2021"
+-                        android:textColor="#000000"
+-                        android:textSize="@dimen/edit_hint_sizt"
+-                        />
+-                </LinearLayout>
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="40dp"
+-                    android:layout_marginLeft="12dp"
+-                    android:layout_marginRight="12dp"
+-                    android:layout_marginTop="12dp"
+-                    android:background="#FFFFFF"
+-                    >
+-                    <EditText
+-                        android:id="@+id/et_company"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="56dp"
+-                        android:text="Peru Company"
+-                        android:textColor="#000000"
+-                        android:textSize="@dimen/edit_hint_sizt"
+-                        />
+-                </LinearLayout>
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="40dp"
+-                    android:layout_marginLeft="12dp"
+-                    android:layout_marginRight="12dp"
+-                    android:layout_marginTop="12dp"
+-                    android:background="#FFFFFF"
+-                    >
+-                    <EditText
+-                        android:textCursorDrawable="@drawable/color_cursor"
+-                        android:singleLine="true"
+-                        android:ellipsize="middle"
+-                        android:id="@+id/et_brandandtype"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="match_parent"
+-                        android:hint="Pip Brand and Type"
+-                        android:textColorHint="#40000000"
+-                        android:textColor="#000000"
+-                        android:textSize="@dimen/edit_hint_sizt"
+-                        />
+-                </LinearLayout>
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="40dp"
+-                    android:layout_marginLeft="12dp"
+-                    android:layout_marginTop="12dp"
+-                    android:layout_marginRight="12dp"
+-                    android:background="#FFFFFF"
+-                    >
+-                    <EditText
+-                        android:textCursorDrawable="@drawable/color_cursor"
+-                        android:singleLine="true"
+-                        android:ellipsize="middle"
+-                        android:id="@+id/et_email"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="match_parent"
+-                        android:hint="CC e-Mail"
+-                        android:textColor="#000000"
+-                        android:textColorHint="#40000000"
+-                        android:textSize="@dimen/edit_hint_sizt"
+-                        />
+-                </LinearLayout>
+-
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="40dp"
+-                    android:layout_marginLeft="12dp"
+-                    android:layout_marginTop="12dp"
+-                    android:layout_marginRight="12dp"
+-                    android:background="#FFFFFF"
+-                    >
+-                    <EditText
+-                        android:textCursorDrawable="@drawable/color_cursor"
+-                        android:singleLine="true"
+-                        android:ellipsize="middle"
+-                        android:id="@+id/et_test_methon"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="match_parent"
+-                        android:hint="Test Method"
+-                        android:textColor="#000000"
+-                        android:textColorHint="#40000000"
+-                        android:textSize="@dimen/edit_hint_sizt"
+-                        />
+-                </LinearLayout>
+-            </LinearLayout>
+-            <View
+-                android:layout_width="match_parent"
+-                android:layout_height="12dp">
+-            </View>
+-            <LinearLayout
+-                android:id="@+id/lin_test"
+-                android:layout_width="wrap_content"
+-                android:layout_height="49dp"
+-                android:orientation="horizontal"
+-                android:gravity="center"
+-                android:background="#FFFFFF"
+-                >
+-                <RelativeLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:gravity="center_vertical"
+-                    >
+-                    <TextView
+-                        android:id="@+id/et_pressure_test"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginLeft="12dp"
+-                        android:layout_weight="1"
+-                        android:text="Pressure Test"
+-                        android:textColor="#0081CC"
+-                        android:layout_alignParentLeft="true"
+-                        android:textSize="12sp" />
+-                    <ImageView
+-                        android:id="@+id/iv_pressure_test"
+-                        android:layout_width="25dp"
+-                        android:layout_height="25dp"
+-                        android:layout_alignParentRight="true"
+-                        android:layout_weight="2"
+-                        android:src="@mipmap/unfold"
+-                        />
+-                </RelativeLayout>
+-            </LinearLayout>
+-            <LinearLayout
+-                android:id="@+id/ll_pre_test"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="12dp"
+-                android:orientation="vertical"
+-                android:visibility="visible"
+-                >
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:orientation="horizontal"
+-                    >
+-                    <RelativeLayout
+-                        android:id="@+id/rl_connect"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="40dp"
+-                        android:layout_gravity="center_vertical"
+-                        android:layout_marginLeft="12dp"
+-                        android:layout_marginRight="12dp"
+-                        android:background="#FFFFFF">
+-                        <LinearLayout
+-                            android:id="@+id/ll_dot"
+-                            android:layout_width="8dp"
+-                            android:layout_height="match_parent"
+-                            android:layout_alignParentLeft="true"
+-                            android:layout_marginLeft="12dp"
+-                            android:gravity="center_vertical"
+-                            android:orientation="horizontal">
+-                            <View
+-                                android:layout_width="8dp"
+-                                android:layout_height="8dp"
+-                                android:background="@drawable/dot_connnect"></View>
+-                        </LinearLayout>
+-                        <TextView
+-                            android:id="@+id/tv_connected"
+-                            android:layout_width="181dp"
+-                            android:layout_height="match_parent"
+-                            android:layout_marginLeft="10dp"
+-                            android:layout_toRightOf="@+id/ll_dot"
+-                            android:gravity="center_vertical"
+-                            android:text="Connected(Rifeng Guard)"
+-                            android:textColor="#a6000000"
+-                            android:textSize="10sp" />
+-                        <TextView
+-                            android:layout_width="80dp"
+-                            android:layout_height="match_parent"
+-                            android:layout_alignParentRight="true"
+-                            android:layout_marginRight="12dp"
+-                            android:gravity="center_vertical"
+-                            android:text="Disconnect"
+-                            android:textColor="#0081CC"
+-                            android:textSize="10sp" />
+-                    </RelativeLayout>
+-                </LinearLayout>
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:layout_marginTop="12dp"
+-                    android:orientation="horizontal"
+-                    >
+-                    <RelativeLayout
+-                        android:id="@+id/rl_connect1"
+-                        android:layout_width="match_parent"
+-                        android:layout_height="40dp"
+-                        android:layout_gravity="center_vertical"
+-                        android:layout_marginLeft="12dp"
+-                        android:layout_marginRight="12dp"
+-                        android:background="#FFFFFF">
+-                        <LinearLayout
+-                            android:id="@+id/ll_dot1"
+-                            android:layout_width="8dp"
+-                            android:layout_height="match_parent"
+-                            android:layout_alignParentLeft="true"
+-                            android:layout_marginLeft="12dp"
+-                            android:gravity="center_vertical"
+-                            android:orientation="horizontal">
+-                            <View
+-                                android:layout_width="8dp"
+-                                android:layout_height="8dp"
+-                                android:background="@drawable/dot_connnect"></View>
+-                        </LinearLayout>
+-                        <TextView
+-                            android:id="@+id/tv_connected1"
+-                            android:layout_width="181dp"
+-                            android:layout_height="match_parent"
+-                            android:layout_marginLeft="10dp"
+-                            android:layout_toRightOf="@+id/ll_dot1"
+-                            android:gravity="center_vertical"
+-                            android:text="Battery Power"
+-                            android:textColor="#a6000000"
+-                            android:textSize="10sp" />
+-                        <TextView
+-                            android:layout_width="80dp"
+-                            android:layout_height="match_parent"
+-                            android:layout_alignParentRight="true"
+-                            android:gravity="center_vertical"
+-                            android:text="15%"
+-                            android:textColor="#E60012"
+-                            android:textSize="10sp" />
+-                    </RelativeLayout>
+-                </LinearLayout>
+-            </LinearLayout>
+-            <View
+-                android:layout_width="match_parent"
+-                android:layout_height="6dp">
+-            </View>
+-            <LinearLayout
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:orientation="vertical"
+-                android:visibility="visible"
+-                >
+-                <TextView
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:text="select the testing pressure"
+-                    android:textSize="7sp"
+-                    android:layout_marginLeft="12dp"
+-                    android:textColor="#000000"
+-                    />
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:orientation="vertical"
+-                    >
+-                    <androidx.recyclerview.widget.RecyclerView
+-                        android:id="@+id/rv_perssure_data"
+-                        android:layout_width="match_parent"
+-                        android:layout_marginTop="12dp"
+-                        android:layout_height="wrap_content">
+-                    </androidx.recyclerview.widget.RecyclerView>
+-                    <View
+-                        android:layout_width="match_parent"
+-                        android:layout_height="30dp">
+-                    </View>
+-                </LinearLayout>
+-            </LinearLayout>
+-
+-            <include
+-                android:layout_alignParentBottom="true"
+-                layout="@layout/test_result_data"
+-                android:layout_height="wrap_content"
+-                android:layout_width="match_parent">
+-            </include>
+-            <!--<include layout="@layout/test_finish"></include>-->
+-        </LinearLayout>
+-
+-    </ScrollView>
+-
+-    <!--<include-->
+-        <!--android:layout_alignParentBottom="true"-->
+-        <!--layout="@layout/button_in_test"-->
+-        <!--android:layout_height="56dp"-->
+-        <!--android:layout_width="match_parent">-->
+-    <!--</include>-->
+-
+-
+-</RelativeLayout>
+Index: app/src/main/java/com/rifeng/p2p/adapter/ReportListAdapter.java
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/adapter/ReportListAdapter.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/adapter/ReportListAdapter.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
+@@ -1,111 +0,0 @@
+-package com.rifeng.p2p.adapter;
+-
+-import android.content.Context;
+-import android.view.View;
+-import android.view.ViewGroup;
+-import android.widget.Button;
+-import android.widget.LinearLayout;
+-import android.widget.TextView;
+-
+-import androidx.annotation.NonNull;
+-import androidx.recyclerview.widget.RecyclerView;
+-
+-import com.rifeng.p2p.R;
+-import com.rifeng.p2p.entity.Report;
+-
+-import java.util.ArrayList;
+-
+-public  class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.MyViewHolder> {
+-
+-    private Context mComtext;
+-    private ArrayList<Report> list;
+-
+-    public ReportListAdapter(Context context, ArrayList<Report> list) {
+-        this.mComtext = context;
+-        this.list = list;
+-    }
+-    @NonNull
+-    @Override
+-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+-        View viewItem = View.inflate(mComtext , R.layout.item_report_layout , null);
+-        return new MyViewHolder(viewItem);
+-    }
+-    /**
+-     * 绑定数据
+-     * @param holder
+-     * @param position
+-     */
+-    @Override
+-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+-
+-        Report report = list.get(position);
+-        if ( "pass".equals(report.getStatus())){ //当状态等于啥时，设置相应的颜色
+-            System.out.println("通过状态");
+-            holder.llTestStatus.setBackgroundResource(R.color.Color_Pass);
+-        }
+-        if ("Fail".equalsIgnoreCase(report.getStatus())){
+-            holder.llTestStatus.setBackgroundResource(R.color.Color_Fail);
+-        }
+-
+-        holder.dateDay.setText(report.getCurrentDay());
+-
+-        holder.status.setText(report.getStatus());
+-
+-        holder.company.setText(report.getCompany());
+-
+-        holder.email.setText(report.getEmail());
+-        holder.mobilePhone.setText(report.getMobilePhone());
+-
+-        holder.testingMethod.setText(report.getTestingMethod());
+-
+-    }
+-
+-    @Override
+-    public int getItemCount() {
+-        return list.size();
+-    }
+-    class MyViewHolder extends RecyclerView.ViewHolder{
+-        private TextView dateDay;
+-        private TextView company;
+-        private TextView status;
+-        private TextView email;
+-        private TextView mobilePhone;
+-        private TextView testingMethod;
+-        private LinearLayout llTestStatus;
+-        private Button btnEmail;
+-        private Button btnReport;
+-
+-        public MyViewHolder(@NonNull View itemView) {
+-            super(itemView);
+-            dateDay = itemView.findViewById(R.id.tv_test_time);
+-            status = itemView.findViewById(R.id.tv_test_status);
+-            company = itemView.findViewById(R.id.tv_company);
+-            email = itemView.findViewById(R.id.tv_email);
+-            mobilePhone = itemView.findViewById(R.id.tv_mobile_phone);
+-            testingMethod = itemView.findViewById(R.id.tv_testing_method);
+-            btnEmail = itemView.findViewById(R.id.btn_email);
+-            btnReport = itemView.findViewById(R.id.btn_report);
+-            llTestStatus = itemView.findViewById(R.id.ll_test_status);
+-
+-            btnReport.setOnClickListener(new View.OnClickListener() {
+-                @Override
+-                public void onClick(View v) {
+-                    if (onItemClickListener != null){
+-                        onItemClickListener.onItemClick(v , list.get(getLayoutPosition()));
+-                    }
+-                }
+-            });
+-        }
+-    }
+-    public interface OnItemClickListener{
+-        public void onItemClick(View view , Report data);
+-    }
+-    private OnItemClickListener onItemClickListener;
+-    /**
+-     * 设置RecyclerView某个监听
+-     * @param onItemClickListener
+-     */
+-    public  void setOnItemClickListener(OnItemClickListener onItemClickListener){
+-        this.onItemClickListener = onItemClickListener;
+-    }
+-}
+Index: app/src/main/java/com/rifeng/p2p/api/TtitCallback.java
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/api/TtitCallback.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/api/TtitCallback.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
+@@ -1,8 +0,0 @@
+-package com.rifeng.p2p.api;
+-
+-public interface TtitCallback {
+-
+-    void onSuccess(String res);
+-
+-    void onFailure(Exception e);
+-}
+Index: app/src/main/java/com/rifeng/p2p/config/Constract.java
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/config/Constract.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/config/Constract.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
+@@ -1,11 +0,0 @@
+-package com.rifeng.p2p.config;
+-
+-import android.net.Uri;
+-
+-/**
+- * @author haizhuo
+- * @introduction 常量配置类
+- */
+-public interface Constract {
+-    String PLUS= "plus";
+-}
+Index: app/src/main/java/com/rifeng/p2p/api/Api.java
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/api/Api.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/api/Api.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
+@@ -1,135 +0,0 @@
+-package com.rifeng.p2p.api;
+-
+-import android.app.Activity;
+-import android.app.ActivityManager;
+-import android.content.ComponentName;
+-import android.content.Context;
+-import android.content.Intent;
+-import android.content.SharedPreferences;
+-import android.util.Log;
+-
+-import com.rifeng.p2p.activity.LoginActivity;
+-import com.rifeng.p2p.util.StringUtils;
+-
+-import org.json.JSONException;
+-import org.json.JSONObject;
+-import java.io.IOException;
+-import java.util.HashMap;
+-import java.util.Iterator;
+-import java.util.Map;
+-import java.util.Map.Entry;
+-
+-import okhttp3.Call;
+-import okhttp3.Callback;
+-import okhttp3.MediaType;
+-import okhttp3.OkHttpClient;
+-import okhttp3.Request;
+-import okhttp3.RequestBody;
+-import okhttp3.Response;
+-
+-import static android.content.Context.MODE_PRIVATE;
+-
+-public class Api {
+-    private static OkHttpClient client;
+-    private static String requestUrl;
+-    private static HashMap<String, Object> mParams;
+-    public static Api api = new Api();
+-
+-    public Api() {
+-
+-    }
+-    public static Api config(String url, HashMap<String, Object> params) {
+-        client = new OkHttpClient.Builder()
+-                .build();
+-        requestUrl = ApiConfig.BASE_URl + url;
+-        mParams = params;
+-        return api;
+-    }
+-    public void postRequest(Context context, final TtitCallback callback) {
+-        SharedPreferences sp = context.getSharedPreferences("sp_ttit", MODE_PRIVATE);
+-        String token = sp.getString("token", "");
+-        JSONObject jsonObject = new JSONObject(mParams);
+-        String jsonStr = jsonObject.toString();
+-        RequestBody requestBodyJson =
+-                RequestBody.create(MediaType.parse("application/json;charset=utf-8")
+-                        , jsonStr);
+-        //第三步创建Rquest
+-        Request request = new Request.Builder()
+-                .url(requestUrl)
+-                .addHeader("contentType", "application/json;charset=UTF-8")
+-                .addHeader("token", token)
+-                .post(requestBodyJson)
+-                .build();
+-        //第四步创建call回调对象
+-        final Call call = client.newCall(request);
+-        //第五步发起请求
+-        call.enqueue(new Callback() {
+-            @Override
+-            public void onFailure(Call call, IOException e) {
+-                Log.e("onFailure", e.getMessage());
+-                callback.onFailure(e);
+-            }
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException {
+-                final String result = response.body().string();
+-                callback.onSuccess(result);
+-            }
+-        });
+-    }
+-
+-    public void getRequest(Context context, final TtitCallback callback) {
+-        SharedPreferences sp = context.getSharedPreferences("sp_ttit", MODE_PRIVATE);
+-        String token = sp.getString("token", "");
+-        String url = getAppendUrl(requestUrl, mParams);
+-        Request request = new Request.Builder()
+-                .url(url)
+-                .addHeader("token", token)
+-                .get()
+-                .build();
+-        Call call = client.newCall(request);
+-        call.enqueue(new Callback() {
+-            @Override
+-            public void onFailure(Call call, IOException e) {
+-                Log.e("onFailure", e.getMessage());
+-                callback.onFailure(e);
+-            }
+-
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException {
+-                final String result = response.body().string();
+-                try {
+-                    JSONObject jsonObject = new JSONObject(result);
+-                    String code = jsonObject.getString("code");
+-                    if (code.equals("401")) {
+-
+-                        Intent in = new Intent(context, LoginActivity.class);
+-                        context.startActivity(in);
+-                        ((Activity)context).finish();
+-                    }
+-                } catch (JSONException e) {
+-                    e.printStackTrace();
+-                }
+-                callback.onSuccess(result);
+-            }
+-        });
+-    }
+-
+-    private String getAppendUrl(String url, Map<String, Object> map) {
+-        if (map != null && !map.isEmpty()) {
+-            StringBuffer buffer = new StringBuffer();
+-            Iterator<Entry<String, Object>> iterator = map.entrySet().iterator();
+-            while (iterator.hasNext()) {
+-                Entry<String, Object> entry = iterator.next();
+-                if (StringUtils.isEmpty(buffer.toString())) {
+-                    buffer.append("?");
+-                } else {
+-                    buffer.append("&");
+-                }
+-                buffer.append(entry.getKey()).append("=").append(entry.getValue());
+-            }
+-            url += buffer.toString();
+-        }
+-        return url;
+-    }
+-}
+-
+Index: app/src/main/java/com/rifeng/p2p/fragment/AddFragment.java
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/fragment/AddFragment.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/fragment/AddFragment.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
+@@ -1,83 +0,0 @@
+-package com.rifeng.p2p.fragment;
+-
+-import android.view.View;
+-import android.widget.EditText;
+-import android.widget.ImageView;
+-import android.widget.LinearLayout;
+-import android.widget.TextView;
+-import com.rifeng.p2p.R;
+-import com.rifeng.p2p.util.ExpandView;
+-
+-public class AddFragment extends BaseFragment {
+-
+-    private ExpandView expandView;
+-
+-    private LinearLayout linearLayout  , linearLayout2;
+-
+-    private LinearLayout LlBasicData , LlPreTest;
+-    private ImageView imgShrink , testIm;
+-    private static EditText[] editTexts = new EditText[7];
+-    private TextView textViewTitle;
+-    public static AddFragment newInstance() {
+-        AddFragment fragment = new AddFragment();
+-        return fragment;
+-    }
+-    @Override
+-    protected int initLayout() {
+-        return R.layout.fragment_add;
+-    }
+-    @Override
+-    protected void initView() {
+-
+-        linearLayout = mRootView.findViewById(R.id.lin_tv);
+-        linearLayout2 = mRootView.findViewById(R.id.lin_test);
+-
+-        imgShrink = mRootView.findViewById(R.id.iv_basic);
+-        testIm = mRootView.findViewById(R.id.iv_test);
+-
+-        textViewTitle  = mRootView.findViewById(R.id.et_basic);
+-
+-
+-        LlBasicData = mRootView.findViewById(R.id.ll_basic_data);
+-        LlPreTest = mRootView.findViewById(R.id.ll_pre_test);
+-
+-
+-        editTexts[0] = mRootView.findViewById(R.id.et_project_name);
+-        editTexts[1] = mRootView.findViewById(R.id.et_site_address);
+-        editTexts[2] = mRootView.findViewById(R.id.et_post_code);
+-        editTexts[3] = mRootView.findViewById(R.id.et_date);
+-        editTexts[4] = mRootView.findViewById(R.id.et_company);
+-        editTexts[5] = mRootView.findViewById(R.id.et_brandandtype);
+-        editTexts[6] = mRootView.findViewById(R.id.et_email);
+-    }
+-    @Override
+-    protected void initData() {
+-        linearLayout.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                if (LlBasicData.getVisibility() == View.VISIBLE){
+-                    LlBasicData.setVisibility(View.GONE);
+-                    imgShrink.setImageResource(R.mipmap.shrink);
+-                }
+-                else {
+-                    LlBasicData.setVisibility(View.VISIBLE);
+-                    imgShrink.setImageResource(R.mipmap.unfold);
+-                }
+-            }
+-        });
+-
+-        linearLayout2.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View view) {
+-                if (LlPreTest.getVisibility() == View.VISIBLE){
+-                    LlPreTest.setVisibility(View.GONE);
+-                    testIm.setImageResource(R.mipmap.shrink);
+-                }
+-                else {
+-                    LlPreTest.setVisibility(View.VISIBLE);
+-                    testIm.setImageResource(R.mipmap.unfold);
+-                }
+-            }
+-        });
+-    }
+-}
+Index: app/src/main/java/com/rifeng/p2p/api/ApiConfig.java
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/api/ApiConfig.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/api/ApiConfig.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
+@@ -1,15 +0,0 @@
+-package com.rifeng.p2p.api;
+-
+-public class ApiConfig {
+-    public static final String BASE_URl = "http://192.168.34.31:8081/api";
+-
+-    public static final Integer PAGE_SIZE = 10;
+-
+-    public static final String LOGIN = "/auth/appLogin";
+-
+-    public static final String REGISTER = "/auth/register";
+-
+-    public static final String DATA_LIST = "/notity/getAll";
+-
+-    public static final String PRESSURE_HISTIRY  = "/pressure/queryPressureRecord";
+-}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n  <component name=\"VisualizationToolProject\">\r\n    <option name=\"state\">\r\n      <ProjectState>\r\n        <option name=\"scale\" value=\"0.176\" />\r\n      </ProjectState>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ .idea/misc.xml	(date 1626422833897)
+@@ -9,7 +9,7 @@
+   <component name="VisualizationToolProject">
+     <option name="state">
+       <ProjectState>
+-        <option name="scale" value="0.176" />
++        <option name="scale" value="0.18002011397921555" />
+       </ProjectState>
+     </option>
+   </component>
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\n\r\nbuildscript {\r\n    repositories {\r\n        maven { url 'https://maven.aliyun.com/repository/public' }\r\n        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }\r\n        google()\r\n        jcenter()\r\n\r\n        mavenCentral()\r\n    }\r\n    dependencies {\r\n        classpath 'com.android.tools.build:gradle:4.1.3'\r\n        classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin\r\n        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'\r\n        classpath'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'\r\n    }\r\n}\r\nallprojects {\r\n    repositories {\r\n        maven { url 'https://maven.aliyun.com/repository/public' }\r\n//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }\r\n//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }\r\n//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }\r\n//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }\r\n        google()\r\n        jcenter()\r\n\r\n        mavenCentral()\r\n        maven {\r\n            url  \"http://dl.bintray.com/nuptboyzhb/maven\"\r\n        }\r\n        maven { url 'https://jitpack.io' }\r\n\r\n    }\r\n}\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ build.gradle	(date 1626422833951)
+@@ -19,10 +19,6 @@
+ allprojects {
+     repositories {
+         maven { url 'https://maven.aliyun.com/repository/public' }
+-//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+-//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+-//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+-//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+         google()
+         jcenter()
+ 
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\napply plugin: 'org.greenrobot.greendao'\r\n// 获取当前系统时间\r\nstatic def releaseTime() {\r\n    return new Date().format(\"yyyyMMddHHmmss\")\r\n}\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.1\"\r\n    defaultConfig {\r\n        applicationId \"com.rifeng.p2p\"\r\n        minSdkVersion 23\r\n        targetSdkVersion 26\r\n        versionCode 1\r\n        multiDexEnabled true\r\n        versionName \"1.0\"\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n        javaCompileOptions {\r\n            annotationProcessorOptions {\r\n                includeCompileClasspath true\r\n            }\r\n        }\r\n        compileOptions {\r\n            sourceCompatibility 1.8\r\n            targetCompatibility 1.8\r\n        }\r\n    }\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n\r\n    android.applicationVariants.all { variant ->\r\n        variant.outputs.all {\r\n            // 名称_android_版本号.apk\r\n            outputFileName = \"RFGuard_${defaultConfig.versionName}_${releaseTime()}.apk\"\r\n        }\r\n    }\r\n}\r\n\r\ngreendao {\r\n    schemaVersion 5 //当前数据库版本\r\n    daoPackage 'com.rifeng.p2p.db.greendao'//设置类包名\r\n    targetGenDir 'src/main/java'//设置类存放目录\r\n}\r\ndependencies {\r\n\r\n    implementation fileTree(dir: 'libs', include: ['*.jar'])\r\n    implementation 'androidx.appcompat:appcompat:1.0.2'\r\n\r\n//    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'\r\n    implementation group: 'com.android.support.constraint', name: 'constraint-layout', version: '2.0.0-alpha1'\r\n\r\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\r\n    testImplementation 'junit:junit:4.12'\r\n    androidTestImplementation 'androidx.test:runner:1.1.1'\r\n//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'\r\n    //引入ButterKnifesupport:design\r\n//    implementation \"com.jakewharton:butterknife:7.0.1\"\r\n\r\n    implementation 'com.jakewharton:butterknife:10.0.0'\r\n    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'\r\n    //noinspection GradleCompatible\r\n    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'\r\n    //noinspection GradleCompatible\r\n    implementation 'com.android.support:design:26.0.0-alpha1'\r\n    //noinspection GradleCompatible\r\n    implementation 'com.android.support:cardview-v7:26.0.0-alpha1'\r\n    //implementation 'com.github.cirno-poi:VerifyEditText:1.0.0'\r\n//    implementation 'com.github.YangsBryant:TeaPickerView:1.0.0'\r\n\r\n\r\n    implementation 'com.squareup.picasso:picasso:2.5.2'\r\n    //集成OkHttp网络框架\r\n    implementation 'com.squareup.okhttp3:okhttp:3.2.0'\r\n    implementation 'com.squareup.retrofit2:retrofit:2.3.0'\r\n    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'\r\n    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'\r\n    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'\r\n    implementation 'io.reactivex.rxjava2:rxjava:2.1.1'\r\n    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'\r\n\r\n\r\n    //动态加载\r\n    implementation 'com.zyao89:zloading:1.0.11'\r\n    implementation 'com.wang.avi:library:2.1.3'\r\n\r\n    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.3'\r\n//    implementation 'androidx.recyclerview:recyclerview:1.0.0'\r\n    implementation 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'\r\n//    implementation 'androidx.appcompat:appcompat:1.1.0'\r\n    implementation 'com.google.android.material:material:1.2.1'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'\r\n//    testImplementation 'junit:junit:4.+'\r\n//    androidTestImplementation 'androidx.test.ext:junit:1.1.1'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'\r\n\r\n    implementation 'androidx.recyclerview:recyclerview:1.1.0'\r\n    implementation \"androidx.swiperefreshlayout:swiperefreshlayout:1.1.0\"\r\n\r\n    implementation 'org.greenrobot:eventbus:3.1.1'\r\n    implementation 'de.greenrobot:eventbus:2.4.0'\r\n    //本地数据库\r\n    implementation 'org.greenrobot:greendao:3.3.0'\r\n    //9宫格的图片选择\r\n//    implementation 'com.jaeger.ninegridimageview:library:1.1.1'\r\n//    //远程依赖\r\n//    implementation 'com.github.PengHaiZhuo:PhotoPicker:1.0.1'\r\n    //Glide\r\n    implementation 'com.github.bumptech.glide:glide:4.9.0'\r\n    implementation 'jp.wasabeef:glide-transformations:4.0.0@aar'\r\n    //PhotoView\r\n    implementation 'com.github.chrisbanes:PhotoView:2.3.0'\r\n    //\r\n    implementation files('libs/blelib_20160308.jar')\r\n\r\n    implementation 'com.github.YangsBryant:TeaPickerView:1.0.2'\r\n\r\n    // 刷新框架\r\n    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖\r\n    implementation  'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头\r\n    implementation  'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载\r\n    implementation project(':consecutivescroller')\r\n    implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'\r\n    // https://mvnrepository.com/artifact/androidx.camera/camera-core\r\n    implementation group: 'androidx.camera', name: 'camera-core', version: '1.0.0'\r\n    implementation project(':picture_library')\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/build.gradle	(date 1626422833961)
+@@ -41,7 +41,7 @@
+ }
+ 
+ greendao {
+-    schemaVersion 5 //当前数据库版本
++    schemaVersion 6 //当前数据库版本
+     daoPackage 'com.rifeng.p2p.db.greendao'//设置类包名
+     targetGenDir 'src/main/java'//设置类存放目录
+ }
+@@ -127,4 +127,6 @@
+     // https://mvnrepository.com/artifact/androidx.camera/camera-core
+     implementation group: 'androidx.camera', name: 'camera-core', version: '1.0.0'
+     implementation project(':picture_library')
++
+ }
++
+Index: app/src/main/java/com/rifeng/p2p/http/RetrofitFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.rifeng.p2p.http;\r\n\r\nimport android.content.Context;\r\nimport android.os.Handler;\r\nimport android.os.Looper;\r\nimport android.util.Log;\r\n\r\n\r\nimport com.rifeng.p2p.BuildConfig;\r\nimport com.rifeng.p2p.callback.FormResultListener;\r\n\r\nimport org.json.JSONException;\r\nimport org.json.JSONObject;\r\n\r\nimport java.io.IOException;\r\nimport java.util.ArrayList;\r\nimport java.util.Iterator;\r\nimport java.util.List;\r\nimport java.util.concurrent.TimeUnit;\r\n\r\nimport okhttp3.Cookie;\r\nimport okhttp3.CookieJar;\r\nimport okhttp3.HttpUrl;\r\nimport okhttp3.Interceptor;\r\nimport okhttp3.OkHttpClient;\r\nimport okhttp3.Request;\r\nimport okhttp3.Response;\r\nimport okhttp3.logging.HttpLoggingInterceptor;\r\nimport retrofit2.Retrofit;\r\nimport retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;\r\nimport retrofit2.converter.gson.GsonConverterFactory;\r\n\r\npublic class RetrofitFactory {\r\n\r\n\r\n\r\n//    //正式\r\n//    public static String URL_HOST = \"https://guard.rifeng.com/\";\r\n//    public static String URL_HOST = \"http://192.168.110.66\";\r\n    //    public static String URL_HOST = \"http://192.168.34.47:8081\";\r\n//    public static String URL_HOST = \"http://192.168.34.26:8081\";\r\n//    //测试\r\n    public static String URL_HOST = \"http://192.168.110.66\";\r\n\r\n    public static String BASE_URL = URL_HOST;\r\n    public static String URL_UPLOAD_HOST = \"http://192.168.110.66\" + \"/api/upload/uploadMuti\";\r\n    public static String REPORT_URL = \"http://192.168.110.66/appchar/\";\r\n    //正式\r\n//    public static String URL_HOST = \"https://guard.rifeng.com\";\r\n//    public static String BASE_URL = URL_HOST;\r\n//    public static String URL_UPLOAD_HOST = \"https://guard.rifeng.com\" + \"/api/upload/uploadMuti\";\r\n//    public static String REPORT_URL = \"https://guard.rifeng.com/appchar/\";\r\n\r\n    //正式\r\n\r\n//    public static String URL_HOST = \"https://guard.rifeng.com\";\r\n//    public static String BASE_URL = URL_HOST;\r\n//    public static String URL_UPLOAD_HOST = \"https://guard.rifeng.com\" + \"/api/upload/uploadMuti\";\r\n//    public static String REPORT_URL = \"https://guard.rifeng.com/appchar/\";\r\n\r\n    // 获取首页 lookup code\r\n\r\n\r\n    public static String URL_GET_REGISTER_CONTENT = BASE_URL + \"/api/agreement/getAgreementByType/\";\r\n\r\n    //public static String URL_ADDOPERATION = BASE_URL + \"com.sie.rfhw.operationLog.operationLog.addOperationLog.biz.ext\";\r\n\r\n\r\n    public static String URL_GETCOMPANYNAME = BASE_URL + \"/api/auth/checkCompany\";\r\n\r\n\r\n    public static String URL_GET_VERIFYCODE_IMG = BASE_URL + \"/api/auth/getCaptcha\";\r\n\r\n\r\n    private static final long TIMEOUT = 60;\r\n\r\n    private static Handler mDelivery = new Handler(Looper.getMainLooper());\r\n\r\n\r\n    // Retrofit是基于OkHttpClient的，可以创建一个OkHttpClient进行一些配置\r\n    public static OkHttpClient httpClient = new OkHttpClient.Builder()\r\n            // 添加通用的Header\r\n            .addInterceptor(new Interceptor() {\r\n                @Override\r\n                public Response intercept(Chain chain) throws IOException {\r\n                    Request.Builder builder = chain.request().newBuilder();\r\n                    return chain.proceed(builder.build());\r\n                }\r\n            })\r\n            .addNetworkInterceptor(new TokenHeaderInterceptor())\r\n            .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {\r\n                @Override\r\n                public void log(String message) {\r\n                    Log.d(\"retrofit\", message);\r\n//                    LogToFileUtils2.write(message);\r\n                }\r\n            }).setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE))\r\n            .connectTimeout(TIMEOUT, TimeUnit.SECONDS)\r\n            .readTimeout(TIMEOUT, TimeUnit.SECONDS)\r\n            .build();\r\n\r\n    private static RFService retrofitService = new Retrofit.Builder()\r\n            .baseUrl(BASE_URL)\r\n            // 添加Gson转换器\r\n            .addConverterFactory(GsonConverterFactory.create())\r\n            // 添加Retrofit到RxJava的转换器\r\n            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())\r\n            .client(httpClient)\r\n            .build()\r\n            .create(RFService.class);\r\n\r\n    public static RFService testService = new Retrofit.Builder()\r\n            .baseUrl(URL_HOST)  //\"http://192.168.34.35:8081\"\r\n            // 添加Gson转换器\r\n            .addConverterFactory(GsonConverterFactory.create())\r\n            // 添加Retrofit到RxJava的转换器\r\n            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())\r\n            .client(httpClient)\r\n            .build()\r\n            .create(RFService.class);\r\n\r\n    public static RFService getInstance() {\r\n        return retrofitService;\r\n    }\r\n\r\n\r\n    public static void get(Context mContext, final String url, final JSONObject obj, final FormResultListener listener){\r\n        new Thread(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n\r\n                String urlStr = url;\r\n                String paramStr = getParamString(obj);\r\n                if (!\"\".equals(paramStr) && paramStr.length() > 0){\r\n                    urlStr = urlStr + \"?\" + paramStr;\r\n                }\r\n                Log.i(\"=========:\", urlStr);\r\n\r\n                Request.Builder requestBuilder = new Request\r\n                        .Builder()\r\n                        .get()//GET请求的参数传递\r\n                        .url(urlStr);\r\n                requestBuilder.addHeader(\"Content-Type\",\"application/x-www-form-urlencoded\");\r\n                Request request = requestBuilder.build();\r\n                try {\r\n                    final Response response = httpClient.newCall(request).execute();\r\n                    if(response.code() == 200){\r\n                        //LogUtil.i(\"URL:\"+ url+\"request success\");\r\n                        if(listener!=null){\r\n                            mDelivery.post(new Runnable() {\r\n                                @Override\r\n                                public void run() {\r\n                                    listener.successResponse(response);\r\n                                }\r\n                            });\r\n                        }\r\n\r\n                    }else{\r\n                        if(listener!=null){\r\n                            Log.i(url+\"request faile\", \"\");\r\n                            mDelivery.post(new Runnable() {\r\n                                @Override\r\n                                public void run() {\r\n                                    listener.faile(response.code()+\":Server Error\");\r\n                                }\r\n                            });\r\n                        }\r\n                    }\r\n                } catch (IOException e) {\r\n                    e.printStackTrace();\r\n                    if(listener!=null){\r\n                        Log.i(url+\"request Exception\",\"\");\r\n                        mDelivery.post(new Runnable() {\r\n                            @Override\r\n                            public void run() {\r\n                                listener.faile(\"Request Error\");\r\n                            }\r\n                        });\r\n                    }\r\n\r\n                }\r\n            }\r\n        }).start();\r\n\r\n    }\r\n\r\n    public static String getParamString(JSONObject obj){\r\n        try {\r\n            StringBuffer sb = new StringBuffer();\r\n            Iterator<String> keys = obj.keys();\r\n            while (keys.hasNext()){\r\n                String key = keys.next();\r\n                String value = obj.getString(key);\r\n                sb.append(key);\r\n                sb.append(\"=\");\r\n                sb.append(value);\r\n                sb.append(\"&&\");\r\n            }\r\n            if (sb.length() > 2) {\r\n                sb.delete(sb.length() - 2, sb.length());\r\n            }\r\n\r\n            return sb.toString();\r\n        } catch (JSONException e) {\r\n            e.printStackTrace();\r\n            return \"\";\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/http/RetrofitFactory.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/http/RetrofitFactory.java	(date 1626422833907)
+@@ -38,14 +38,14 @@
+ //    public static String URL_HOST = "https://guard.rifeng.com/";
+ //    public static String URL_HOST = "http://192.168.110.66";
+     //    public static String URL_HOST = "http://192.168.34.47:8081";
+-//    public static String URL_HOST = "http://192.168.34.26:8081";
++//    public static String URL_HOST = "http://192.168.34.31:8081";
+ //    //测试
+     public static String URL_HOST = "http://192.168.110.66";
+ 
+     public static String BASE_URL = URL_HOST;
+     public static String URL_UPLOAD_HOST = "http://192.168.110.66" + "/api/upload/uploadMuti";
+     public static String REPORT_URL = "http://192.168.110.66/appchar/";
+-    //正式
++//正式
+ //    public static String URL_HOST = "https://guard.rifeng.com";
+ //    public static String BASE_URL = URL_HOST;
+ //    public static String URL_UPLOAD_HOST = "https://guard.rifeng.com" + "/api/upload/uploadMuti";
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n            <option value=\"$PROJECT_DIR$/consecutivescroller\" />\r\n            <option value=\"$PROJECT_DIR$/picture_library\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveExternalAnnotations\" value=\"false\" />\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n        <option name=\"useQualifiedModuleNames\" value=\"true\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ .idea/gradle.xml	(date 1626422833916)
+@@ -13,11 +13,11 @@
+             <option value="$PROJECT_DIR$/app" />
+             <option value="$PROJECT_DIR$/consecutivescroller" />
+             <option value="$PROJECT_DIR$/picture_library" />
++            <option value="$PROJECT_DIR$/richtextview" />
+           </set>
+         </option>
+         <option name="resolveExternalAnnotations" value="false" />
+         <option name="resolveModulePerSourceSet" value="false" />
+-        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: app/src/main/java/com/rifeng/p2p/db/greendao/DaoMaster.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.rifeng.p2p.db.greendao;\r\n\r\nimport android.content.Context;\r\nimport android.database.sqlite.SQLiteDatabase;\r\nimport android.database.sqlite.SQLiteDatabase.CursorFactory;\r\nimport android.util.Log;\r\n\r\nimport org.greenrobot.greendao.AbstractDaoMaster;\r\nimport org.greenrobot.greendao.database.StandardDatabase;\r\nimport org.greenrobot.greendao.database.Database;\r\nimport org.greenrobot.greendao.database.DatabaseOpenHelper;\r\nimport org.greenrobot.greendao.identityscope.IdentityScopeType;\r\n\r\n\r\n// THIS CODE IS GENERATED BY greenDAO, DO NOT EDIT.\r\n/**\r\n * Master of DAO (schema version 5): knows all DAOs.\r\n */\r\npublic class DaoMaster extends AbstractDaoMaster {\r\n    public static final int SCHEMA_VERSION = 5;\r\n\r\n    /** Creates underlying database table using DAOs. */\r\n    public static void createAllTables(Database db, boolean ifNotExists) {\r\n        AutoSubmitResultDao.createTable(db, ifNotExists);\r\n        BleDataBeanDao.createTable(db, ifNotExists);\r\n        BleRecordsDao.createTable(db, ifNotExists);\r\n        HistoryRecordBeanDao.createTable(db, ifNotExists);\r\n        LastDeviceTestIdDao.createTable(db, ifNotExists);\r\n        LookupCodeDao.createTable(db, ifNotExists);\r\n        PipeCodeModelDao.createTable(db, ifNotExists);\r\n        PipeDiagramModelDao.createTable(db, ifNotExists);\r\n        PointDao.createTable(db, ifNotExists);\r\n        PressureResultBeanDao.createTable(db, ifNotExists);\r\n        PressureTestModelDao.createTable(db, ifNotExists);\r\n        UserAgencyPressureInfoDao.createTable(db, ifNotExists);\r\n        UserForeManBeanDao.createTable(db, ifNotExists);\r\n    }\r\n\r\n    /** Drops underlying database table using DAOs. */\r\n    public static void dropAllTables(Database db, boolean ifExists) {\r\n        AutoSubmitResultDao.dropTable(db, ifExists);\r\n        BleDataBeanDao.dropTable(db, ifExists);\r\n        BleRecordsDao.dropTable(db, ifExists);\r\n        HistoryRecordBeanDao.dropTable(db, ifExists);\r\n        LastDeviceTestIdDao.dropTable(db, ifExists);\r\n        LookupCodeDao.dropTable(db, ifExists);\r\n        PipeCodeModelDao.dropTable(db, ifExists);\r\n        PipeDiagramModelDao.dropTable(db, ifExists);\r\n        PointDao.dropTable(db, ifExists);\r\n        PressureResultBeanDao.dropTable(db, ifExists);\r\n        PressureTestModelDao.dropTable(db, ifExists);\r\n        UserAgencyPressureInfoDao.dropTable(db, ifExists);\r\n        UserForeManBeanDao.dropTable(db, ifExists);\r\n    }\r\n\r\n    /**\r\n     * WARNING: Drops all table on Upgrade! Use only during development.\r\n     * Convenience method using a {@link DevOpenHelper}.\r\n     */\r\n    public static DaoSession newDevSession(Context context, String name) {\r\n        Database db = new DevOpenHelper(context, name).getWritableDb();\r\n        DaoMaster daoMaster = new DaoMaster(db);\r\n        return daoMaster.newSession();\r\n    }\r\n\r\n    public DaoMaster(SQLiteDatabase db) {\r\n        this(new StandardDatabase(db));\r\n    }\r\n\r\n    public DaoMaster(Database db) {\r\n        super(db, SCHEMA_VERSION);\r\n        registerDaoClass(AutoSubmitResultDao.class);\r\n        registerDaoClass(BleDataBeanDao.class);\r\n        registerDaoClass(BleRecordsDao.class);\r\n        registerDaoClass(HistoryRecordBeanDao.class);\r\n        registerDaoClass(LastDeviceTestIdDao.class);\r\n        registerDaoClass(LookupCodeDao.class);\r\n        registerDaoClass(PipeCodeModelDao.class);\r\n        registerDaoClass(PipeDiagramModelDao.class);\r\n        registerDaoClass(PointDao.class);\r\n        registerDaoClass(PressureResultBeanDao.class);\r\n        registerDaoClass(PressureTestModelDao.class);\r\n        registerDaoClass(UserAgencyPressureInfoDao.class);\r\n        registerDaoClass(UserForeManBeanDao.class);\r\n    }\r\n\r\n    public DaoSession newSession() {\r\n        return new DaoSession(db, IdentityScopeType.Session, daoConfigMap);\r\n    }\r\n\r\n    public DaoSession newSession(IdentityScopeType type) {\r\n        return new DaoSession(db, type, daoConfigMap);\r\n    }\r\n\r\n    /**\r\n     * Calls {@link #createAllTables(Database, boolean)} in {@link #onCreate(Database)} -\r\n     */\r\n    public static abstract class OpenHelper extends DatabaseOpenHelper {\r\n        public OpenHelper(Context context, String name) {\r\n            super(context, name, SCHEMA_VERSION);\r\n        }\r\n\r\n        public OpenHelper(Context context, String name, CursorFactory factory) {\r\n            super(context, name, factory, SCHEMA_VERSION);\r\n        }\r\n\r\n        @Override\r\n        public void onCreate(Database db) {\r\n            Log.i(\"greenDAO\", \"Creating tables for schema version \" + SCHEMA_VERSION);\r\n            createAllTables(db, false);\r\n        }\r\n    }\r\n\r\n    /** WARNING: Drops all table on Upgrade! Use only during development. */\r\n    public static class DevOpenHelper extends OpenHelper {\r\n        public DevOpenHelper(Context context, String name) {\r\n            super(context, name);\r\n        }\r\n\r\n        public DevOpenHelper(Context context, String name, CursorFactory factory) {\r\n            super(context, name, factory);\r\n        }\r\n\r\n        @Override\r\n        public void onUpgrade(Database db, int oldVersion, int newVersion) {\r\n            Log.i(\"greenDAO\", \"Upgrading schema from version \" + oldVersion + \" to \" + newVersion + \" by dropping all tables\");\r\n            dropAllTables(db, true);\r\n            onCreate(db);\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/rifeng/p2p/db/greendao/DaoMaster.java	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ app/src/main/java/com/rifeng/p2p/db/greendao/DaoMaster.java	(date 1626422833972)
+@@ -14,10 +14,10 @@
+ 
+ // THIS CODE IS GENERATED BY greenDAO, DO NOT EDIT.
+ /**
+- * Master of DAO (schema version 5): knows all DAOs.
++ * Master of DAO (schema version 6): knows all DAOs.
+  */
+ public class DaoMaster extends AbstractDaoMaster {
+-    public static final int SCHEMA_VERSION = 5;
++    public static final int SCHEMA_VERSION = 6;
+ 
+     /** Creates underlying database table using DAOs. */
+     public static void createAllTables(Database db, boolean ifNotExists) {
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"RunConfigurationProducerService\">\r\n    <option name=\"ignoredProducers\">\r\n      <set>\r\n        <option value=\"org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer\" />\r\n        <option value=\"org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer\" />\r\n        <option value=\"org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer\" />\r\n      </set>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/runConfigurations.xml	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ .idea/runConfigurations.xml	(date 1626422833924)
+@@ -3,6 +3,7 @@
+   <component name="RunConfigurationProducerService">
+     <option name="ignoredProducers">
+       <set>
++        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
+         <option value="org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer" />
+         <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer" />
+         <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer" />
+Index: settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//rootProject.name='guardApp'\r\n\r\ninclude ':app', ':consecutivescroller' , ':picture_library'\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- settings.gradle	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ settings.gradle	(date 1626422834020)
+@@ -1,5 +1,5 @@
+ //rootProject.name='guardApp'
+ 
+-include ':app', ':consecutivescroller' , ':picture_library'
++include ':app', ':consecutivescroller' , ':picture_library',':richtextview'
+ 
+ 
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Encoding\" addBOMForNewFiles=\"with NO BOM\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/encodings.xml	(revision 9be753370696fb6162e327a675a798d9114e2542)
++++ .idea/encodings.xml	(date 1626422833942)
+@@ -1,4 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
++  <component name="Encoding">
++    <file url="PROJECT" charset="UTF-8" />
++  </component>
+ </project>
+\ No newline at end of file
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_6_2_21_9_52_AM__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_6_2_21_9_52_AM__Default_Changelist_.xml

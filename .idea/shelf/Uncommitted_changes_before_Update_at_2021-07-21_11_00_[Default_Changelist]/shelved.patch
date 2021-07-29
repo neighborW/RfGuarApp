@@ -1,0 +1,36 @@
+Index: app/release/output-metadata.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"version\": 2,\r\n  \"artifactType\": {\r\n    \"type\": \"APK\",\r\n    \"kind\": \"Directory\"\r\n  },\r\n  \"applicationId\": \"com.eb.rifeng.safeeu\",\r\n  \"variantName\": \"processReleaseResources\",\r\n  \"elements\": [\r\n    {\r\n      \"type\": \"SINGLE\",\r\n      \"filters\": [],\r\n      \"versionCode\": 1,\r\n      \"versionName\": \"1.0\",\r\n      \"outputFile\": \"RFGuard_1.0_20210720111609.apk\"\r\n    }\r\n  ]\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/release/output-metadata.json	(revision a557f97bb0c6d26a56a29c33c166e3820334c3c2)
++++ app/release/output-metadata.json	(date 1626772317276)
+@@ -12,7 +12,7 @@
+       "filters": [],
+       "versionCode": 1,
+       "versionName": "1.0",
+-      "outputFile": "RFGuard_1.0_20210720111609.apk"
++      "outputFile": "RFGuard_1.0_20210720170737.apk"
+     }
+   ]
+ }
+\ No newline at end of file
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/PressureResultBeanDao.java app/src/main/java/com/rifeng/p2p/db/greendao/PressureResultBeanDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/LastDeviceTestIdDao.java app/src/main/java/com/rifeng/p2p/db/greendao/LastDeviceTestIdDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/PipeDiagramModelDao.java app/src/main/java/com/rifeng/p2p/db/greendao/PipeDiagramModelDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/PressureTestModelDao.java app/src/main/java/com/rifeng/p2p/db/greendao/PressureTestModelDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/LookupCodeDao.java app/src/main/java/com/rifeng/p2p/db/greendao/LookupCodeDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/DaoSession.java app/src/main/java/com/rifeng/p2p/db/greendao/DaoSession.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/UserAgencyPressureInfoDao.java app/src/main/java/com/rifeng/p2p/db/greendao/UserAgencyPressureInfoDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/DaoMaster.java app/src/main/java/com/rifeng/p2p/db/greendao/DaoMaster.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/BleDataBeanDao.java app/src/main/java/com/rifeng/p2p/db/greendao/BleDataBeanDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/AutoSubmitResultDao.java app/src/main/java/com/rifeng/p2p/db/greendao/AutoSubmitResultDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/PointDao.java app/src/main/java/com/rifeng/p2p/db/greendao/PointDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/PipeCodeModelDao.java app/src/main/java/com/rifeng/p2p/db/greendao/PipeCodeModelDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/BleRecordsDao.java app/src/main/java/com/rifeng/p2p/db/greendao/BleRecordsDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/HistoryRecordBeanDao.java app/src/main/java/com/rifeng/p2p/db/greendao/HistoryRecordBeanDao.java
+diff --git app/src/main/java/com/rifeng/p2p/db/greendao/UserForeManBeanDao.java app/src/main/java/com/rifeng/p2p/db/greendao/UserForeManBeanDao.java
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_6_2_21_9_52_AM__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_6_2_21_9_52_AM__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_7_14_21_1_55_PM__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_7_14_21_1_55_PM__Default_Changelist_.xml

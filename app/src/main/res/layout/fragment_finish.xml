@@ -1,12 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FinishFragment">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    android:background="#F6F8FA"
+    android:orientation="vertical">
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</FrameLayout>
+        android:layout_height="@dimen/size_12dp_level">
+    </View>
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_12dp_level"
+        android:layout_marginRight="@dimen/size_12dp_level"
+        android:layout_marginTop="@dimen/size_12dp_level"
+        android:background="@drawable/shape_search_bg"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/seach_in_finish"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/tab_layout_vp"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/size_12dp_level"
+            android:gravity="center_vertical"
+            android:hint="Enter the project name to query"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textColorHint="#73000000"
+            android:textSize="14sp" />
+        <ImageView
+            android:id="@+id/im_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/size_12dp_level"
+            android:src="@mipmap/search" />
+    </LinearLayout>
+    <include
+        android:id="@+id/ll_default"
+        layout="@layout/default_layout"
+        android:visibility="gone"></include>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"></View>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recyclerView_finish"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout>

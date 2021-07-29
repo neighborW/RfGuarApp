@@ -1,52 +1,52 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tl="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smart.refresh.layout.SmartRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">\
-
-    <LinearLayout
+    >
+    <com.scwang.smart.refresh.header.ClassicsHeader
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@mipmap/home_background"
-        android:orientation="vertical"
-        >
+        android:tooltipText="Loading"
+        android:layout_height="wrap_content"/>
+    <com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout
+        android:id="@+id/scrollerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:autoAdjustHeightAtBottomView="true">
         <LinearLayout
+            android:id="@+id/ll_header"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            >
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/home_title_layout"></include>
         </LinearLayout>
-        <LinearLayout
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout_vp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:background="@android:color/white"
+            app:layout_isSticky="true"
+            app:tabGravity="center"
+            app:tabMinWidth="1103dp"
+            app:tabIndicatorColor="@color/Color_Main"
+            app:tabIndicatorHeight="2dp"
+            app:tabIndicatorFullWidth="false"
+            app:tabTextColor="@color/Color_Word25"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabSelectedTextColor="@color/Color_Main"
             >
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
+        </com.google.android.material.tabs.TabLayout>
+        <com.donkingliang.consecutivescroller.ConsecutiveViewPager
+            android:id="@+id/vp_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout>
+    <com.scwang.smart.refresh.footer.ClassicsFooter
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        >
-    <com.flyco.tablayout.CommonTabLayout
-        android:id="@+id/commonTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:background="#ffffff"
-        tl:tl_iconHeight="30dp"
-        tl:tl_iconWidth="30dp"
-        tl:tl_indicator_color="#2C97DE"
-        tl:tl_indicator_height="0dp"
-        tl:tl_textSelectColor="#0025ff"
-        tl:tl_textUnselectColor="#454544"
-        tl:tl_textsize="@dimen/size_14px"
-        tl:tl_underline_color="#DDDDDD"
-        tl:tl_underline_height="1dp" />
-    <com.rifeng.p2p.view.FixedViewPager
-        android:id="@+id/fixedViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
-    </LinearLayout>
-</LinearLayout>
+        android:layout_height="wrap_content"/>
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>

@@ -1,0 +1,180 @@
+import groovy.json.JsonSlurper
+
+/**
+ * 初始化配置
+ */
+task initProperty {
+    loadProperty()
+}
+
+/**
+ * 检查是否更新配置
+ */
+task checkProperty {
+    //一般Jenkins打包会加入特定指令：环境地址（正式/测试，应用/文件服务器），打包类型（正式/测试），此处选一个判断即可
+    if (!project.hasProperty("ENV")) {
+        println("initBuidConfig")
+        initBuidConfig()
+    } else{
+        println("updateProperty")
+        updateProperty()
+        initBuidConfig()
+    }
+}
+
+
+def updateProperty() {
+
+    /*
+     * 打包类型
+     * FORMAL：正式；
+     * DEV：开发；
+     * TEST：测试；
+     * DIY：自定义
+     */
+    if (project.hasProperty("ENV")) {
+        String arg = project.ENV
+        if (arg != null && !arg.trim().equalsIgnoreCase("")) {
+            project.ext.ENV = arg
+        }
+        println("ENV:"+arg)
+    }
+    //是否升级
+
+    //版本名
+    if (project.hasProperty("VERNAME")) {
+        def arg = project.VERNAME
+        if (arg != null && !arg.trim().equalsIgnoreCase("")) {
+            project.ext.VERSION_NAME = arg
+        }
+        println("VERSION_NAME:"+arg)
+    }
+
+    //版本号
+    if (project.hasProperty("VERCODE")) {
+        def arg = project.VERCODE
+        if (arg != null && !arg.trim().equalsIgnoreCase("")) {
+            if(Integer.valueOf(arg) > 0){
+                project.ext.VERSION_CODE = (int)arg
+            }
+        }
+        println("VERSION_CODE:"+project.ext.VERSION_CODE)
+    }
+
+    //文件服务器地址(自定义环境)
+    if (project.hasProperty("APP_HOST")) {
+        def arg = project.APP_HOST
+        if (arg != null && !arg.trim().equalsIgnoreCase("")) {
+            project.ext.MP_HOST_DIY = getPropertyString(arg)
+        }
+        println("MP_HOST_DIY:"+arg)
+    }
+    //应用服务器地址(自定义环境)
+    if (project.hasProperty("UPLOAD_HOST")) {
+        def arg = project.UPLOAD_HOST
+        if (arg != null && !arg.trim().equalsIgnoreCase("")) {
+            project.ext.MP_UPLOAD_URL_DIY = getPropertyString(arg)
+        }
+        println("MP_UPLOAD_URL_DIY:"+arg)
+    }
+
+
+    def json = "{\n" +
+            "\t\"" + "PACKAGE_NAME" + "\":\"" + project.ext.PACKAGE_NAME + "\",\n\n" +
+
+            "\t\"" + "PGYER_APPID" + "\":" + project.ext.PGYER_APPID + ",\n\n" +
+
+            "\t\"" + "KEYSTORE_FILE_NAME" + "\":\"" + project.ext.KEYSTORE_FILE_NAME + "\",\n" +
+            "\t\"" + "KEYSTORE_ALIAS" + "\":\"" + project.ext.KEYSTORE_ALIAS + "\",\n" +
+            "\t\"" + "KEYSTORE_KEY_PASSWORD" + "\":\"" + project.ext.KEYSTORE_KEY_PASSWORD + "\",\n" +
+            "\t\"" + "KEYSTORE_PASSWORD" + "\":\"" + project.ext.KEYSTORE_PASSWORD + "\",\n\n" +
+
+            "\t\"" + "VERSION_CODE" + "\":" + project.ext.VERSION_CODE + ",\n" +
+            "\t\"" + "VERSION_NAME" + "\":\"" + project.ext.VERSION_NAME + "\",\n\n" +
+
+            "\t\"" + "MP_HOST_URL_FORMAL" + "\":" + project.ext.MP_HOST_URL_FORMAL + ",\n" +
+            "\t\"" + "MP_UPLOAD_URL_FORMAL" + "\":" + project.ext.MP_UPLOAD_URL_FORMAL + ",\n" +
+            "\t\"" + "MP_HOST_URL_TEST" + "\":" + project.ext.MP_HOST_URL_TEST + ",\n" +
+            "\t\"" + "MP_UPLOAD_URL_TEST" + "\":" + project.ext.MP_UPLOAD_URL_TEST + ",\n\n" +
+
+            "\t\"" + "MP_HOST_URL_DEV" + "\":" + project.ext.MP_HOST_URL_DEV + ",\n" +
+            "\t\"" + "MP_UPLOAD_URL_DEV" + "\":" + project.ext.MP_UPLOAD_URL_DEV + ",\n" +
+            "\t\"" + "MP_HOST_URL_DIY" + "\":" + project.ext.MP_HOST_URL_DIY + ",\n" +
+            "\t\"" + "MP_UPLOAD_URL_DIY" + "\":" + project.ext.MP_UPLOAD_URL_DIY + ",\n\n" +
+
+            "\t\"" + "ENV" + "\":" + project.ext.ENV + "\n\n" +
+            "}"
+    File propertyFile = new File("${projectDir}/property/AppProperty.json")
+    if (propertyFile.exists()) {
+        fileWrite(propertyFile.absolutePath, json)
+    }
+}
+
+def fileWrite(path, stringBuffer) {
+    new File(path).withWriter('UTF-8') {
+        within ->
+            within.append(stringBuffer)
+    }
+}
+
+//加载项目配置
+def loadProperty() {
+    File propertyFile = new File("${projectDir}/property/AppProperty.json")
+    if (!propertyFile.exists()) {
+        return
+    }
+    def json = new JsonSlurper().parseText(propertyFile.text)
+    project.ext.PACKAGE_NAME = json.PACKAGE_NAME
+
+
+    project.ext.PGYER_APPID = getPropertyString(json.PGYER_APPID)
+
+    project.ext.KEYSTORE_FILE_NAME = json.KEYSTORE_FILE_NAME
+    project.ext.KEYSTORE_ALIAS = json.KEYSTORE_ALIAS
+    project.ext.KEYSTORE_KEY_PASSWORD = json.KEYSTORE_KEY_PASSWORD
+    project.ext.KEYSTORE_PASSWORD = json.KEYSTORE_PASSWORD
+
+
+    project.ext.VERSION_CODE = json.VERSION_CODE
+    project.ext.VERSION_NAME = json.VERSION_NAME
+
+    project.ext.MP_HOST_URL_FORMAL = getPropertyString(json.MP_HOST_URL_FORMAL)
+    project.ext.MP_UPLOAD_URL_FORMAL = getPropertyString(json.MP_UPLOAD_URL_FORMAL)
+    project.ext.MP_HOST_URL_TEST = getPropertyString(json.MP_HOST_URL_TEST)
+    project.ext.MP_UPLOAD_URL_TEST = getPropertyString(json.MP_UPLOAD_URL_TEST)
+
+    project.ext.MP_HOST_URL_DEV = getPropertyString(json.MP_HOST_URL_DEV)
+    project.ext.MP_UPLOAD_URL_DEV = getPropertyString(json.MP_UPLOAD_URL_DEV)
+    project.ext.MP_HOST_URL_DIY = getPropertyString(json.MP_HOST_URL_DIY)
+    project.ext.MP_UPLOAD_URL_DIY = getPropertyString(json.MP_UPLOAD_URL_DIY)
+
+    project.ext.ENV = getPropertyString(json.ENV)
+
+}
+
+def getPropertyString(arg) {
+    //此方法输出了参数的字符串类型，若Androidmanifest有应用该数值，则不要调用该方法，请参考已有的property写法
+    arg != null && !arg.trim().equalsIgnoreCase("") ? "\"${arg}\"" : "\"\""
+}
+
+def initBuidConfig() {
+    android.defaultConfig {
+        it.buildConfigField "String", "PGYER_APPID", project.ext.PGYER_APPID
+
+        it.buildConfigField "String", "MP_HOST_URL_FORMAL", project.ext.MP_HOST_URL_FORMAL
+        it.buildConfigField "String", "MP_UPLOAD_URL_FORMAL", project.ext.MP_UPLOAD_URL_FORMAL
+
+        it.buildConfigField "String", "MP_HOST_URL_TEST", project.ext.MP_HOST_URL_TEST
+        it.buildConfigField "String", "MP_UPLOAD_URL_TEST", project.ext.MP_UPLOAD_URL_TEST
+
+        it.buildConfigField "String", "MP_HOST_URL_DEV", project.ext.MP_HOST_URL_DEV
+        it.buildConfigField "String", "MP_UPLOAD_URL_DEV", project.ext.MP_UPLOAD_URL_DEV
+
+        it.buildConfigField "String", "MP_HOST_URL_DIY", project.ext.MP_HOST_URL_DIY
+        it.buildConfigField "String", "MP_UPLOAD_URL_DIY", project.ext.MP_UPLOAD_URL_DIY
+
+        it.buildConfigField "String", "ENV", project.ext.ENV
+
+
+    }
+}

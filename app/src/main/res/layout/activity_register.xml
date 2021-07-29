@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_register"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_login"
     tools:context=".activity.RegisterActivity"
     android:orientation="vertical"
+    android:gravity="center"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +23,6 @@
             android:layout_marginTop="29dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginLeft="20dp"
            >
         </include>
@@ -35,15 +36,18 @@
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
             <EditText
+                android:singleLine="true"
+                android:ellipsize="middle"
                 android:id="@+id/frstName"
                 android:layout_width="135dp"
                 android:layout_height="22.5dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="Frst Name"
-                android:textColor="#000000"
-                android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textColor="@color/Color_Word85"
+                android:textColorHint="@color/Color_Word25"
+                android:textSize="@dimen/edit_hint_sizt"
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -58,20 +62,23 @@
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
             <EditText
+                android:singleLine="true"
+                android:ellipsize="middle"
                 android:id="@+id/lastName"
                 android:layout_width="135dp"
                 android:layout_height="22.5dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="Last Name"
-                android:textColor="#000000"
-                android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textColor="@color/Color_Word85"
+                android:textColorHint="@color/Color_Word25"
+                android:textSize="@dimen/edit_hint_sizt"
+                />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
-            android:layout_height="20dp">
-        </View>
+            android:layout_height="20dp"></View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,16 +87,19 @@
             android:layout_gravity="center"
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
-            <EditText
-                android:id="@+id/agentName"
+            <TextView
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:id="@+id/et_company"
                 android:layout_width="135dp"
                 android:layout_height="22.5dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:hint="Agent Name"
-                android:textColor="#000000"
-                android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:hint="Company Name"
+                android:textColor="@color/Color_Word85"
+                android:textColorHint="@color/Color_Word25"
+                android:textSize="@dimen/edit_hint_sizt"
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -104,15 +114,19 @@
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
             <EditText
+                android:singleLine="true"
+                android:ellipsize="middle"
                 android:id="@+id/contactNumber"
                 android:layout_width="135dp"
                 android:layout_height="22.5dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="Contact Number"
-                android:textColor="#000000"
-                android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textColor="@color/Color_Word85"
+                android:textColorHint="@color/Color_Word25"
+                android:textSize="@dimen/edit_hint_sizt"
+                android:selectAllOnFocus="true"
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -127,15 +141,18 @@
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
             <EditText
+                android:singleLine="true"
+                android:ellipsize="middle"
                 android:id="@+id/et_postCode"
                 android:layout_width="135dp"
                 android:layout_height="22.5dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="Post Code"
-                android:textColor="#000000"
-                android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textColor="@color/Color_Word85"
+                android:textColorHint="@color/Color_Word25"
+                android:textSize="@dimen/edit_hint_sizt"
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -148,17 +165,30 @@
             android:layout_marginRight="30dp"
             android:layout_gravity="center"
             android:background="@drawable/shape_register_line"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
+
             <EditText
                 android:id="@+id/et_area"
-                android:layout_width="135dp"
+                android:layout_width="wrap_content"
                 android:layout_height="22.5dp"
-                android:layout_weight="1"
+                android:layout_weight="8.5"
                 android:background="@null"
                 android:hint="Area"
-                android:textColor="#000000"
-                android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textColor="@color/Color_Word85"
+                android:textColorHint="@color/Color_Word25"
+                android:textSize="@dimen/edit_hint_sizt"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                />
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/im_area_address"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:src="@mipmap/shrink"
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -174,15 +204,19 @@
             android:background="@drawable/shape_register_line"
             android:orientation="horizontal">
             <EditText
+                android:singleLine="true"
+                android:ellipsize="middle"
                 android:id="@+id/et_address"
                 android:layout_width="135dp"
                 android:layout_height="22.5dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="Address"
-                android:textColor="#000000"
-                android:textColorHint="#bcbcbc"
-                android:textSize="14dp" />
+                android:textColor="@color/Color_Word85"
+                android:textColorHint="@color/Color_Word25"
+                android:textSize="@dimen/edit_hint_sizt"
+                android:textCursorDrawable="@drawable/color_cursor"
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -190,8 +224,8 @@
         </View>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
+            android:layout_height="45dp"
+            android:gravity="center"
             android:layout_marginLeft="30.5dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="33.5dp"
@@ -201,12 +235,10 @@
                 android:id="@+id/sumit"
                 android:layout_width="135dp"
                 android:layout_height="40dp"
-
-                android:layout_weight="1"
                 android:background="@null"
                 android:hint="SIGN UP"
-                android:textColor="#000000"
-                android:textColorHint="#bcbcbc"
+                android:gravity="center"
+                android:textColor="@color/white"
                 android:textSize="14dp" />
         </LinearLayout>
     </LinearLayout>

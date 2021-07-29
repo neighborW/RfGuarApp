@@ -1,1 +1,5 @@
-include ':app'
+//rootProject.name='guardApp'
+
+include ':app', ':consecutivescroller' , ':picture_library'
+
+

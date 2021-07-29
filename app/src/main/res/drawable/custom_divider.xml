@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+<!--    <gradient-->
+<!--        android:centerColor="@color/Color_Word10"-->
+<!--        android:type="linear" />-->
+
+    <solid
+        android:color="@color/Color_Word10"
+        ></solid>
+        <size
+            android:height="0.5dp"
+            />
+    <padding
+        android:left="@dimen/size_12dp_level"
+        android:right="@dimen/size_12dp_level"
+        >
+    </padding>
+
+</shape>

@@ -1,10 +1,392 @@
 <resources>
-
-    <string name="app_name">P2P</string>
     <string name="text_size">14px</string>
     <string name="text_tip">You will exit the App, are you sure to exit?</string>
     <string name="text_determin">YES</string>
     <string name="text_cancel">NO</string>
     <string name="todo">TODO</string>
 
+    <string name="home_text">Home</string>
+    <string name="mine_text">Mine</string>
+
+    <string name="password_hint">Password</string>
+
+    <string name="account_hint">Email</string>
+    <string name="text_in_loginBtn">Login</string>
+    <string name="text_in_registerBtn">Sign up</string>
+    <!--<string name="app_name">PhotoPicker</string>-->
+    <string name="please_pick_image">请选择图片</string>
+    <string name="notify_image_permission">为确保应用正常运行，请允许相机和读取权限。</string>
+
+
+    <string name="app_name">Rifeng Guard</string>
+
+    <string name="net_error">Net Error,Please Try Later!</string>
+    <string name="unkown_error">Unknow Error,Please Try Later!</string>
+    <string name="dialog_sure">Sure</string>
+    <string name="dialog_cancel">Cancel</string>
+
+    <string name="dialog_update_now">Update Now</string>
+    <string name="dialog_later">Latter</string>
+
+    <string name="dialog_splash_screen_permission_title">Permission prompt</string>
+    <string name="dialog_splash_screen_permission_content">This application requires the location and SD card permissions to ensure the normal functioning </string>
+
+    <string name="dialog_are_your_sure_logout_title">Logout prompt</string>
+    <string name="dialog_are_your_sure_logout_content">Are you sure logout?</string>
+
+    <string name="dialog_version_title">Version prompt</string>
+    <string name="dialog_new_version_found_content">New Version Was Found!</string>
+
+    <string name="login_email_hint">Email-address</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_login">Login</string>
+    <string name="login_signup">Register</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="email_must_be_not_null">E_Mail must be Not Empty!</string>
+    <string name="pwd_must_be_not_null">Password must be Not Empty!</string>
+
+    <string name="verfycode_must_be_not_null">VerifyCode must be Not Empty!</string>
+    <string name="currentpassword_must_be_not_null">Current Password must be Not Empty!</string>
+
+    <string name="repwd_must_be_not_null">RePassword must be Not Empty!</string>
+    <string name="repwd_must_be_same_with_pwd">The Password must be consistent with the confirmation password!</string>
+    <string name="pwd_format_error_length_error">Password regular error, Length must longer than 8</string>
+    <string name="pwd_format_error_contain_error">Password regular error, Password must contain letters</string>
+    <string name="incorrect_e_mail_formate">Incorrect email format!</string>
+    <string name="register_title">Register</string>
+    <string name="regemail_continue">Continue</string>
+    <string name="regemail_email_hint_text">What\'s your email</string>
+    <string name="regemail_email_hint_edit">Input your email</string>
+    <string name="regemail_invitation_hint_text">What\'s your invitation code</string>
+    <string name="regemail_invitation_hint_edit">Input your invitation code</string>
+    <string name="regemail_password_hint_text">Set your password</string>
+    <string name="regemail_password_hint_edit">Enter password</string>
+    <string name="regemail_password_hint_edit_again">Re-enter password</string>
+
+    <string name="regother_hint_text">Please supply others</string>
+    <string name="regother_first_name_hint">First Name</string>
+    <string name="regother_surname_hint">Last Name</string>
+    <string name="regother_company_name_hint">Company Name</string>
+    <string name="regother_address_hint">Address</string>
+    <string name="regother_suburb_hint">Area</string>
+    <string name="regother_postcode_hint">Postcode</string>
+    <string name="regother_state_hint">State</string>
+    <string name="regother_mobile_number_hint">Contact Number</string>
+    <string name="regother_country_hint">Country</string>
+    <string name="first_name_must_be_not_null">First Name Must Be Not Null</string>
+    <string name="surname_must_be_not_null">Surname Must Be Not Null</string>
+    <string name="state_must_be_not_null">State Must Be Not Null</string>
+    <string name="country_must_be_not_null">Country Must Be Not Null</string>
+    <string name="Regother_Area_required">Area is required</string>
+
+    <string name="regreturn_return">Return</string>
+    <string name="regreturn_hint1">Your account is now active and ready to use. Please check the confirmation email in your mailbox.</string>
+    <string name="regreturn_hint2">Registe successfully\nA comfirmation email has been</string>
+    <string name="regreturn_hint3">sent to your mailbox</string>
+    <string name="modify_pwd_success">Modify password Success!</string>
+    <string name="new_password_has_been_sent_to_your_mailbox">New password has been sent to your mailbox</string>
+
+    <string name="pwdreset_title">Passwoed Reset</string>
+    <string name="pwdreset_verify_code_title_hint_text">Please input VerifyCode</string>
+    <string name="pwdreset_verify_code_hint_edit">Input VerifyCode</string>
+    <string name="pwdreset_email_hint_text">What\'s your email?</string>
+    <string name="pwdreset_email_hint_edit">Input your email</string>
+    <string name="pwdreset_report_hint">Please find the password in your mailbox</string>
+    <string name="pwdreset_success">Reset success</string>
+
+    <string name="pwdchange_oldpwd_hint_text">Please input your password</string>
+    <string name="pwdchange_oldpwd_hint_edit">Input your current password</string>
+    <string name="pwdchange_newpwd_hint_text">Please input your new password</string>
+    <string name="pwdchange_newpwd_hint_edit">New password</string>
+    <string name="pwdchange_newpwd_again_hint_edit">Confirm New password</string>
+    <string name="pwdchange_submit">Submit</string>
+    <string name="change_my_pwd">Change my password</string>
+    <string name="pwdchange_return_hint">New password has been set</string>
+    <string name="pwdchange_login">Login</string>
+    <string name="about_title">About Me</string>
+    <string name="about_hint_text">Please supply others</string>
+    <string name="about_country_hint">Address</string>
+    <string name="about_state_hint">State</string>
+    <string name="about_suburb_hint">Area</string>
+    <string name="about_city_hint">City</string>
+    <string name="about_plumber_name_hint">First name</string>
+    <string name="about_plumbing_company_hint">Company name</string>
+    <string name="about_mobile_phone_hint">Mobile Phone</string>
+    <string name="about_email_hint">Email And Account</string>
+    <string name="about_address_hint">Address</string>
+    <string name="abount_surname_hint">Last name</string>
+    <string name="about_save">Save</string>
+    <string name="select">Select</string>
+    <string name="please_select_agent">Please Select An Agent!</string>
+    <string name="select_agent">Select Agent</string>
+    <string name="no_data_to_send">Not Data!</string>
+
+
+    <string name="home_title">Home Page</string>
+    <string name="home_state_hint">Address/StreetNo</string>
+    <string name="must_not_empty">&#160;should not be empty.</string>
+    <string name="can_not_empty">&#160;should not be empty.</string>
+
+    <string name="home_city_hint">Site Address(Street+Suburb)</string>
+    <string name="home_address_hint">Project Name</string>
+    <string name="home_post_code">Post Code</string>
+    <string name="home_date_hint">Test Date</string>
+    <string name="home_memo_hint">Pipe Brand and Type</string>
+    <string name="home_foreman_hint">CC e-Mail</string>
+    <string name="home_plumbing_company">Plumbing company</string>
+    <string name="home_tested_by">Tester</string>
+    <string name="home_history_button">History Record</string>
+    <string name="home_test_button">Start Test</string>
+    <string name="no_communication_is_blank">If there is no communication, it is blank.</string>
+    <string name="home_state_must_not_be_empty">State/Province should not be empty.</string>
+    <string name="home_city_must_not_be_empty">City should not be empty.</string>
+    <string name="home_address_must_not_be_empty">Project Address should not be empty.</string>
+    <string name="home_date_must_not_be_empty">Date should not be empty.</string>
+    <string name="test_by_must_not_be_empty">Tester should not be empty.</string>
+
+
+    <string name="pressuretest_basic_data">Basic Data</string>
+    <string name="pressuretest_basic_project_name">Project Name</string>
+    <string name="pressuretest_basic_address">Site Address(Street+Suberb</string>
+    <string name="pressuretest_basic_postCode">Post Code</string>
+    <string name="pressuretest_basic_test_time">Test Time</string>
+    <string name="pressuretest_basic_Company">Company</string>
+    <string name="pressuretest_pipe_brand_and_type">Pipe Brand and Type</string>
+    <string name="pressuretest_basic_cc_email">CC e-Mail</string>
+    <string name="pressuretest_basic_test_method">Test Method</string>
+
+    <string name="pressuretest_battery_power">Battery Power</string>
+    <string name="pressuretest_battery_tip">The power is in a hurry. Pls charge as soon as possible!</string>
+
+    <string name="pressuretest_Current_Pressure">Current Pressure</string>
+    <string name="pressuretest_select_the_tesing_pressure">SELECT THE TESTING PRESSURE</string>
+
+    <string name="pressuretest_Pipeline_Diagram">Pipeline Diagram</string>
+    <string name="pressuretest_at_most">at most</string>
+
+    <string name="pressuretest_input_pipe_code">Please input the pipe code</string>
+    <string name="pressuretest_save_success">Save Success</string>
+
+
+    <string name="pressuretest_hint">Please select the testing pressure for this test</string>
+    <string name="pressuretest_title">Pressure Test</string>
+    <string name="pressuretest_start_pressure">Start Pressure\n%1$dKPa</string>
+    <string name="pressuretest_current_pressure">Current Pressure\n%1$dKPa</string>
+    <string name="pressuretest_test_no">Round %1$d test progress</string>
+    <string name="pressuretest_test_sec">Time left %1$s</string>
+    <string name="pressuretest_mode_hint">Model %1$d:%2$dKPa</string>
+    <string name="pressuretest_state_abnormal">Abnormal</string>
+    <string name="pressuretest_state_waiting">Waiting</string>
+    <string name="pressuretest_state_pass">Pass</string>
+    <string name="pressuretest_state_testing">Testing</string>
+    <string name="pressuretest_start_test_continue">The last test has not ended yet. Continue?</string>
+    <string name="pressuretest_test_progress_title">Test progress</string>
+    <string name="pressuretest_test_progress_round">Round %1$d</string>
+    <string name="pressuretest_test_progress_content">Setting pressure:%1$dkPa,\n Duration:%2$dS,\n Maximum test pressure allowed:%3$dkPa,\nPressure drop allowance:%4$dkPa</string>
+    <string name="pressuretest_popup_information">Information</string>
+    <string name="pressuretest_popup_reset">Reset</string>
+    <string name="pressuretest_popup_disconnect">Disconnect</string>
+
+    <string name="dilog_title_pt_notice">Notice:</string>
+    <string name="dilog_content_pt_disclaimer">Disclaimer:As per Australian standard,the pressure test should be undertaken at %1$dKPa.</string>
+    <string name="dilog_btn_pt_agree">I Agree</string>
+    <string name="dilog_btn_pt_ok">OK</string>
+    <string name="dilog_btn_pt_cancel">Cancel</string>
+    <string name="dilog_btn_pt_accept">Accept</string>
+    <string name="dilog_btn_pt_try_again">Try Again</string>
+    <string name="dilog_content_pt_test_pass">Test passed.</string>
+    <string name="dilog_content_pt_test_fail">Test failed,send result to mailbox.</string>
+    <string name="dilog_content_pt_connent_ble">Do you want to connect the Bluetooth Connection.</string>
+    <string name="dilog_content_pt_upload_diagram">Do you want to upload photos and batch number of pipes?</string>
+    <string name="dilog_content_pt_upload_diagram_twice">Sure Not to upload photos and batch number? CANNOT upload again afterwards.</string>
+    <string name="dilog_content_pt_submit_data">Are you sure to submit the data</string>
+    <string name="dilog_content_pt_upload_success">Upload Success!Continue to submit the data now?</string>
+
+    <string name="Bluetooth">Bluetooth</string>
+    <string name="ble_state">Bluetooth</string>
+    <string name="ble_state_switch_on">On</string>
+    <string name="ble_state_switch_off">Off</string>
+    <string name="ble_devices_hint">Devices</string>
+    <string name="ble_connect">Connect</string>
+    <string name="ble_no_support_ble">The phone model does not support Bluetooth 4.0</string>
+    <string name="ble_no_support_ble_4">The phone model does not support Bluetooth</string>
+    <string name="ble_select_device">Please select the Bluetooth Connection to connect</string>
+    <string name="ble_connection_lost">Lost connection</string>
+    <string name="ble_connected_to">Connected to</string>
+    <string name="ble_searching">searching...</string>
+    <string name="ble_device_search">Search Bluetooth Connection</string>
+
+    <string name="Search">Search</string>
+
+    <string name="hisrecord_title">History Record</string>
+    <string name="hisrecord_item_plumber_name">Plumber Name</string>
+    <string name="hisrecord_item_plumbing_company">Plumbing Company</string>
+    <string name="hisrecord_item_plumbing_name">Tester</string>
+    <string name="hisrecord_item_email">Email Address</string>
+    <string name="hisrecord_item_phone">Mobile Phone</string>
+    <string name="hisrecord_item_project_address">Project Name</string>
+    <string name="hisrecord_item_test_count">Test Count</string>
+    <string name="hisrecord_item_test_result">Test Result:%s</string>
+    <string name="hisrecord_item_btn_email">Email</string>
+    <string name="hisrecord_item_btn_submit">Submit</string>
+    <string name="hisrecord_item_btn_report">Report</string>
+    <string name="hisrecord_item_btn_retry">Retry</string>
+    <string name="hisrecord_item_btn_return">Return</string>
+    <string name="dialog_hisrecord_btn_resend">Resend Mail</string>
+
+    <string name="record_title">Record</string>
+
+    <string name="loading_loadmore">Loading...</string>
+    <string name="text_no_more">---  No More  ---</string>
+    <string name="text_load_more">Load more</string>
+    <string name="text_load_error">--- retry load ---</string>
+
+    <string name="date_picker_cancle">cancel</string>
+    <string name="date_picker_title">Date</string>
+    <string name="date_picker_commit">sure</string>
+    <string name="date_picker_year">-</string>
+    <string name="date_picker_month">-</string>
+    <string name="date_picker_day"></string>
+    <string name="date_picker_hour">:</string>
+    <string name="date_picker_minute"></string>
+
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+
+    <string name="dialog_get_location">Geting current location</string>
+    <string name="Save">save</string>
+    <string name="modify_success">Modify Success!</string>
+    <string name="save_success">Save Success!</string>
+
+
+    <string name="data_error">Data Error!</string>
+    <string name="e_mail_send_success">E_Mail Send Success!</string>
+    <string name="a_new_version">A New Version Was Found!</string>
+
+    <string name="pressure_insufficient">Insufficient pressure</string>
+    <string name="pressure_over">Over pressured, Can not start testing</string>
+
+    <string name="Reset_Successfully">Reset Successfully</string>
+
+    <string name="all_image">所有图片</string>
+    <string name="picture">图片</string>
+    <string name="take_picture">拍摄照片</string>
+    <string name="preview">预览</string>
+    <string name="preview_num">预览(%1$d)</string>
+    <string name="choose">选择</string>
+    <string name="done">完成</string>
+    <string name="use">使用</string>
+    <string name="done_num">完成(%1$d/%2$d)</string>
+    <string name="num_postfix">%1$s张</string>
+    <string name="message_max_num">select a maximum of %1$d photos</string>
+    <string name="save_ing">保存图片中…</string>
+    <string name="permission_fail">检测到无sd卡读取权限,请到应用程序打开外部存储读取权限</string>
+    <string name="please_input_data">请输入修改信息！</string>
+    <string name="send">发送</string>
+    <string name="cancel">取消</string>
+    <string name="netdic_choose_all_str">全选</string>
+    <string name="original_pic">原图</string>
+    <string name="next_step">Next Step</string>
+    <string name="pipelinediagram">Pipeline Digram</string>
+    <string name="enter_the_code">Please enter the code</string>
+    <string name="submit">Submit</string>
+    <string name="back">Back</string>
+    <string name="test_method">Testing Method</string>
+    <string name="batch_number">Batch Number</string>
+    <string name="dilog_content_pt_back_msg">Confirm back?</string>
+    <string name="dilog_content_pt_upload_photo_none">Photos has NOT been uploaded. Submit Now?</string>
+    <string name="dilog_content_pt_upload_pipecode_none">Batch number has NOT been uploaded, Submit Now?</string>
+    <string name="test_method_cant_empty">Testing Method Can Not Be Empty!</string>
+    <string name="recording_photos">Recording Photos</string>
+    <string name="clicktodelete">Click here to Delete</string>
+
+
+    <string name="picker_str_bottom_choose">Choose</string>
+    <string name="picker_str_bottom_original">Original</string>
+    <string name="picker_str_bottom_preview">Preview</string>
+    <string name="picker_str_camera_permission">You have denied the permission to take photos. If you refuse to set this function, it will not work! Do you want to set it up?</string>
+    <string name="picker_str_day">Date</string>
+    <string name="picker_str_folder_image_unit"> </string>
+    <string name="picker_str_folder_item_all">AllMedias</string>
+    <string name="picker_str_folder_item_image">AllPicture</string>
+    <string name="picker_str_folder_item_video">AllVideo</string>
+    <string name="picker_str_hour">h</string>
+    <string name="picker_str_item_take_photo">TakePhoto</string>
+    <string name="picker_str_item_take_video">TakeVideo</string>
+    <string name="picker_str_milli">ms</string>
+    <string name="picker_str_minute">min</string>
+    <string name="picker_str_permission_go_setting">OK,I go</string>
+    <string name="picker_str_permission_refuse_setting">I refuse</string>
+    <string name="picker_str_preview_empty">preview list isEmpty!</string>
+    <string name="picker_str_redBook_full">Full</string>
+    <string name="picker_str_redBook_gap">Gap</string>
+    <string name="picker_str_second">s</string>
+    <string name="picker_str_storage_permission">You have denied the storage permission. If you refuse to set, the function will be unavailable! Do you want to set it up?</string>
+    <string name="picker_str_str_video_over_max_duration">Video duration shall not exceed </string>
+    <string name="picker_str_this_months">This months</string>
+    <string name="picker_str_this_week">This week</string>
+    <string name="picker_str_time_format">yyyy-MM</string>
+    <string name="picker_str_tip_action_frequently">Do not operate too fast!</string>
+    <string name="picker_str_tip_cant_preview_video">Preview video not supported！</string>
+    <string name="picker_str_tip_media_empty">No media files found</string>
+    <string name="picker_str_tip_mimeTypes_empty">Please select at least one file loading type!</string>
+    <string name="picker_str_tip_only_select_image">Only pictures can be selected!</string>
+    <string name="picker_str_tip_only_select_one_video">Only select one video!</string>
+    <string name="picker_str_tip_only_select_video">Only video can be selected!</string>
+    <string name="picker_str_tip_shield">This file has been selected or cannot be selected!</string>
+    <string name="picker_str_tip_singleCrop_error">Clipping is abnormal. The picture has been reset for you. Please try again!</string>
+    <string name="picker_str_tip_video_less_min_duration">Video duration shall not be less than </string>
+    <string name="picker_str_title_all">VideoAndPicture</string>
+    <string name="picker_str_title_crop">PictureCrop</string>
+    <string name="picker_str_title_crop_right">Sure</string>
+    <string name="picker_str_title_image">PictureSelect</string>
+    <string name="picker_str_title_right">Complete</string>
+    <string name="picker_str_title_video">VideoSelect</string>
+    <string name="picker_str_today">Today</string>
+    <string name="hisrecord_item_test_method">Testing Method</string>
+    <string name="app_drag_delete">Drag Here To Delete</string>
+
+    <string name="picture_video_error">The video is corrupted</string>
+    <string name="picture_audio_error">The audio is corrupted</string>
+    <string name="picture_error">The picture is corrupted</string>
+    <string name="app_let_go_drag_delete">Release to Delete</string>
+    <string name="text_read_argument">Read The Agreement</string>
+    <string name="login_verfy_code">Verification Code</string>
+    <string name="read_agrement">Please read the agreement</string>
+    <string name="Agree">Agree</string>
+    <string name="dilog_content_pt_enq_faile">Device Init Failed.</string>
+    <string name="password_not_correct">Username or password error</string>
+    <string name="read_register_agreement">I have read and agree to the <![CDATA[<b><font color=#1876f0>Registration Agreement!</font></b>]]></string>
+    <!--<string name="read_register_agreement"><font fgcolor='#FF4CD964'>Running</font></string>-->
+    <string name="read_register_agreement_btn">Registration Agreement</string>
+    <string name="agreement_unread_error">Please read the Register Agreement</string>
+    <string name="title_activity_passworc_reset_next">Password Reset</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="foreman_title">CC e-Mail</string>
+    <string name="fore_man_add">add</string>
+    <string name="fore_man_confrim">confrim</string>
+    <string name="fore_man_place_holder">please input email address</string>
+
+    <string name="no_pressure_test_parameters">No pressure test parameters detected, please contact your company.</string>
+    
+    <!--测试状态-->
+    <string name="test_complete">Complete</string>
+    <string name="test_expiring">Expiring</string>
+    <string name="test_invalid">Invalid</string>
+    <string name="test_testing">Testing</string>
+    <string name="test_fail">FAIL</string>
+    <string name="test_pass">PASS</string>
+    <string name="data_no_more">---  No More  data ---</string>
 </resources>

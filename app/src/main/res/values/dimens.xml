@@ -1,10 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
+
     <dimen name="dimen_90dp">90dp</dimen>
     <dimen name="dimen_44dp">44dp</dimen>
-
-    <dimen name="size_14px">14px</dimen>
+    <dimen name="size_14sp">14sp</dimen>
+    <dimen name="btn_text_Sub">18sp</dimen>
     <dimen name="size_270px">270px</dimen>
     <dimen name="size_52px">270px</dimen>
     <dimen name="size_53px">270px</dimen>
+    <dimen name="size_9sp">9sp</dimen>
+    <dimen name="size_7sp">7sp</dimen>
+    <dimen name="dimen_49dp">49dp</dimen>
+    <dimen name="layout_text">14sp</dimen>
+    <dimen name="marginLevel_size">12dp</dimen>
+
+    <dimen name="list_text_size">12sp</dimen>
+
+    <dimen name="edit_hint_sizt">14sp</dimen>
+
+    <dimen name="notify_title_size">18sp</dimen>
+
+    <dimen name="button_text_size">16sp</dimen>
+    <dimen name="main_text_size">14sp</dimen>
+    <dimen name="little_text_size">13sp</dimen>
+
+    <dimen name="current_and_start_pressure">14sp</dimen>
+    <dimen name="size_of_kPa">18sp</dimen>
+    <dimen name="size_of_Pdata">36sp</dimen>
+    <dimen name="size_of_round">10sp</dimen>
+
+    <dimen name="size_of_btnInlogin">18sp</dimen>
+    <!--登录输入框距离左侧屏幕和右侧屏幕的距离，靠左靠右-->
+    <dimen name="size_of_marginLeft">26.5dp</dimen>
+    <dimen name="size_of_marginRight">26dp</dimen>
+    <!--登陆时输入框，右边的图片大小-->
+    <dimen name="size_of_image">24dp</dimen>
+    <dimen name="size_inlogin_image">25dp</dimen>
+
+<!--    <dimen name="size"-->
+
+    <dimen name="grid_image_size">100dp</dimen>
+    <dimen name="view_height_normal">50dp</dimen>
+    <dimen name="margin_horizontal">12dp</dimen>
+    <dimen name="text_size_middle">15sp</dimen>
+    <dimen name="vertical_space">6dp</dimen>
+    <dimen name="margin_vertical">12dp</dimen>
+    <dimen name="default_text_size">12sp</dimen>
+    <dimen name="margin_top_bottum">12dp</dimen>
+    <dimen name="size_12dp_level">12dp</dimen>
+    <dimen name="second_title">16dp</dimen>
+    <dimen name="img_rf_item_width">100dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="btn_radius">2dp</dimen>
+    <dimen name="bar_height">56dp</dimen>
+    <dimen name="btn_height">32dp</dimen>
+    <dimen name="margin_text">8dp</dimen>
+    <dimen name="margin_layout">16dp</dimen>
+    <dimen name="status_bar_height">25dp</dimen>
+    <dimen name="big_image_size">74dp</dimen>
+    <dimen name="min_button_width">52dp</dimen>
+    <dimen name="middle_text_size">17sp</dimen>
+    <dimen name="small_text_size">15sp</dimen>
+    <dimen name="mini_text_size">13sp</dimen>
+    <dimen name="frame_line_width">1dp</dimen>
+    <dimen name="frame_text_size">14sp</dimen>
+    <dimen name="line_width">3dp</dimen>
+    <dimen name="radius">6dp</dimen>
+    <dimen name="iner_radius">5dp</dimen>
+    <dimen name="login_from_size">53dp</dimen>
+    
+    <dimen name="margin_left_and_right">53dp</dimen>
+
+    <dimen name="text_in_item">14sp</dimen>
 </resources>

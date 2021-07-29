@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:textSize="@dimen/size_14sp"
+        android:paddingLeft="12dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:textColor="#333"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:gravity="center|left"
+        />
+     <View
+         android:layout_width="match_parent"
+         android:layout_height="1dp"
+         android:background="@color/default_background"
+         android:layout_marginRight="12dp"
+         android:layout_marginLeft="12dp"></View>
+
+</LinearLayout>

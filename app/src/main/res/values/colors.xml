@@ -1,7 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="selectColor">#112D92</color>
+    <!--<color name="colorPrimary">#ffffff</color>-->
+    <!--<color name="colorPrimaryDark">#ffffff</color>-->
+    <color name="colorAccent">#ffffff</color>
+
+    <color name="loading_background">#50ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="selectColor">#0F6ADA</color>
+
+    <color name="unSelectColor">#000000</color>
+    
+    <color name="listTestColor">#0081CC</color>
+    
+    <color name="colorOfRound1">#5EB575</color>
+    <color name="otherRoundColor">#40000000</color>
+    
+    <color name="edit_text">#000000</color>
+
+    <color name="view_unselect">#ffffff</color>
+
+    <color name="tv_draft_type">#73000000</color>
+    <color name="tv_draft_background">#F6F8FAFF</color>
+    <color name="default_background">#fff6f8fa</color>
+
+    <color name="tv_black">#000000</color>
+    <color name="tv_gray">#80000000</color>
+
+    <color name="f7f7f7">#f7f7f7</color>
+    <color name="afb0b2">#afb0b2</color>
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <color name="gray">#f4f2ee</color>
+    <color name="light_blue">#b2ccde</color>
+    <color name="blue">#6dbef4</color>
+
+    <color name="dialog_btn">#19000000</color>
+
+
+    <color name="Color_Main">#ff0081cc</color>
+    <color name="Color_persent50">#7f0081cc</color>
+    <color name="Color_Correct">#ff46db7a</color>
+    <color name="Color_Error">#ffE60012</color>
+    <color name="Color_Warning">#fff5894e</color>
+    <color name="Color_Fail">#19e60012</color>
+    <color name="Color_Fail_Text">#E60012</color>
+    <color name="Color_Completed">#190081cc</color>
+    <color name="Color_Testing">#19f7b500</color>
+    <color name="Color_Expiring">#19fa6400</color>
+    <color name="Color_Invalid">#19000000</color>
+    
+    <color name="Color_Pass">#E0F2DD</color>
+    <color name="Color_Pass_Text">#55C059</color>
+
+
+
+    <color name="Color_Success">#5EB575</color>
+
+    <color name="Color_Word85">#D8000000</color>
+    <color name="Color_Word65">#a5000000</color>
+    <color name="Color_Word45">#72000000</color>
+    <color name="Color_Word25">#3f000000</color>
+    <color name="Color_Word10">#19000000</color>
+    <color name="Color_Word50">#7f000000</color>
+
+
+    <color name="Color_Background">#fff6f8fa</color>
+    <color name="Color_Dividing_line">#cccccc</color>
+
+    <color name="Color_White90">#E5FFFFFF</color>
+    <color name="Color_White80">#ccFFFFFF</color>
+    <color name="Color_White60">#99FFFFFF</color>
+    <color name="Color_White40">#66FFFFFF</color>
+    <color name="Color_White">#FFFFFFFF</color>
+
+    <color name="Color_Border">#19000000</color>
+
+    <color name="background_transparent45">#72000000</color>
+
+    <color name="color_transparent_333333">#88333333</color>
+
+    <color name="text_compete">#0081CC</color>
+    <color name="textd_testing">#F7B500</color>
+    <color name="textd_expiring">#F5894E</color>
+    <color name="textd_invalid">#000000</color>
+
+<!--    <color name="app_color_black">#000000</color>-->
+<!--    <color name="app_color_f6">#f6f6f6</color>-->
+
+
+    <color name="app_color_grey">#393a3e</color>
+    <color name="app_color_black">#000000</color>
+    <color name="app_color_f6">#f6f6f6</color>
+    <color name="app_color_fa">#fafafa</color>
+    <color name="app_color_divider">#B6B6B6</color>
+    <color name="app_color_c51">#f94c51</color>
+    <color name="app_color_green">#43c117</color>
+    <color name="app_color_53575e">#53575e</color>
+    <color name="app_color_transparent">#00000000</color>
+    <color name="app_color_white">#FFFFFF</color>
+    <color name="app_color_white_transparent">#E0DBDBDB</color>
+    <color name="app_color_blue">#7D7DFF</color>
+    <color name="app_color_9b">#9b9b9b</color>
+    <color name="app_color_e0ff6100">#E0FF6100</color>
+    <color name="app_color_red">#FF0000</color>
+
+    <color name="Color_Round_Test_Text">#D5DCE6</color>
+
+
 </resources>

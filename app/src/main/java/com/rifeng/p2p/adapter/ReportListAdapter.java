@@ -1,9 +1,10 @@
 package com.rifeng.p2p.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,22 +12,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rifeng.p2p.R;
 import com.rifeng.p2p.entity.Report;
-import java.util.List;
 
-public class ReportListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+import java.util.ArrayList;
+
+public  class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.MyViewHolder> {
 
     private Context mComtext;
-    private List<Report> list;
-    public ReportListAdapter(Context context, List<Report> list) {
+    private ArrayList<Report> list;
+
+    public ReportListAdapter(Context context, ArrayList<Report> list) {
         this.mComtext = context;
         this.list = list;
     }
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mComtext).inflate(R.layout.report_item_layout,parent,false);
-         MyViewHolder myViewHolder = new MyViewHolder(view);
-        return myViewHolder;
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View viewItem = View.inflate(mComtext , R.layout.item_report_layout , null);
+        return new MyViewHolder(viewItem);
     }
     /**
      * 绑定数据
@@ -34,36 +36,76 @@ public class ReportListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
      * @param position
      */
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MyViewHolder myViewHolder = (MyViewHolder) holder;
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         Report report = list.get(position);
-        myViewHolder.tvTitle.setText(report.getVtitle());
-        myViewHolder.tvAuthor.setText(report.getCategoryName());
-//        myViewHolder.tvDz.setText(report.);
+        if ( "pass".equals(report.getStatus())){ //当状态等于啥时，设置相应的颜色
+            System.out.println("通过状态");
+            holder.llTestStatus.setBackgroundResource(R.color.Color_Pass);
+        }
+        if ("Fail".equalsIgnoreCase(report.getStatus())){
+            holder.llTestStatus.setBackgroundResource(R.color.Color_Fail);
+        }
+
+        holder.dateDay.setText(report.getCurrentDay());
+
+        holder.status.setText(report.getStatus());
+
+        holder.company.setText(report.getCompany());
+
+        holder.email.setText(report.getEmail());
+        holder.mobilePhone.setText(report.getMobilePhone());
+
+        holder.testingMethod.setText(report.getTestingMethod());
+
     }
+
     @Override
     public int getItemCount() {
         return list.size();
     }
-
-    static class MyViewHolder extends RecyclerView.ViewHolder{
-
-        private TextView tvTitle;
-        private TextView tvAuthor;
-        private TextView tvDz;
-        private TextView tvComment;
-        private TextView tvCollect;
+    class MyViewHolder extends RecyclerView.ViewHolder{
+        private TextView dateDay;
+        private TextView company;
+        private TextView status;
+        private TextView email;
+        private TextView mobilePhone;
+        private TextView testingMethod;
+        private LinearLayout llTestStatus;
+        private Button btnEmail;
+        private Button btnReport;
 
         public MyViewHolder(@NonNull View itemView) {
-
             super(itemView);
+            dateDay = itemView.findViewById(R.id.tv_test_time);
+            status = itemView.findViewById(R.id.tv_test_status);
+            company = itemView.findViewById(R.id.tv_company);
+            email = itemView.findViewById(R.id.tv_email);
+            mobilePhone = itemView.findViewById(R.id.tv_mobile_phone);
+            testingMethod = itemView.findViewById(R.id.tv_testing_method);
+            btnEmail = itemView.findViewById(R.id.btn_email);
+            btnReport = itemView.findViewById(R.id.btn_report);
+            llTestStatus = itemView.findViewById(R.id.ll_test_status);
 
-            tvTitle = itemView.findViewById(R.id.title);
-            tvAuthor = itemView.findViewById(R.id.author);
-            tvDz = itemView.findViewById(R.id.dz);
-            tvComment = itemView.findViewById(R.id.comment);
-            tvTitle = itemView.findViewById(R.id.collect);
-
+            btnReport.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null){
+                        onItemClickListener.onItemClick(v , list.get(getLayoutPosition()));
+                    }
+                }
+            });
         }
+    }
+    public interface OnItemClickListener{
+        public void onItemClick(View view , Report data);
+    }
+    private OnItemClickListener onItemClickListener;
+    /**
+     * 设置RecyclerView某个监听
+     * @param onItemClickListener
+     */
+    public  void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
     }
 }
